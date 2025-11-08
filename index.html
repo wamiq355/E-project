@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marina Fleet | Discover Luxury at The Sea</title>
+
+    <!-- Using only CSS for styling. All Tailwind classes have been converted to custom rules. -->
+    <style>
+        /* --- GLOBAL VARIABLES AND RESETS --- */
+        :root {
+            --primary-bg: #030712;
+            --secondary-bg: #F4F6F8;
+            --fleet-card-light: #E0F7FA;
+            --accent-blue: #38bdf8;
+            --dark-gray-bg: #111827;
+            --text-dark: #1f2937;
+            --text-light: white;
+            --cyan-600: #0891b2;
+            --cyan-700: #0e7490;
+            --cyan-400: #22d3ee;
+            --gray-700: #374151;
+        }
+
+        /* Base styles */
+        body {
+            background-color: var(--primary-bg);
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+        }
+
+        .max-width-container {
+            max-width: 1280px;
+            /* Equivalent to max-w-7xl */
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        /* Utility classes */
+        .shadow-lg {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .shadow-xl {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .shadow-2xl {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .rounded-full {
+            border-radius: 9999px;
+        }
+
+        .rounded-xl {
+            border-radius: 0.75rem;
+        }
+
+        .rounded-lg {
+            border-radius: 0.5rem;
+        }
+
+        .transition {
+            transition: all 0.2s ease;
+        }
+
+        .tracking-tight {
+            letter-spacing: -0.025em;
+        }
+
+        .tracking-widest {
+            letter-spacing: 0.1em;
+        }
+
+        /* Hover Effect */
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Call-to-Action Button Styling */
+        .cta-button {
+            background-color: var(--accent-blue);
+            color: var(--primary-bg);
+            transition: transform 0.2s, background-color 0.2s;
+            font-weight: 700;
+        }
+
+        .cta-button a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .cta-button:hover {
+            background-color: #0ea5e9;
+            transform: translateY(-2px);
+        }
+
+        /* --- 1. HEADER / NAVIGATION --- */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1rem;
+            /* p-4 */
+            background-color: transparent;
+            /* backdrop-filter: blur(10px); */
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo-accent {
+            color: var(--cyan-400);
+        }
+
+        .desktop-nav {
+            display: none;
+            /* hidden on mobile */
+        }
+
+        .desktop-nav a {
+            color: white;
+            text-decoration: none;
+            font-size: -0.875rem;
+            /* text-sm */
+            font-weight: 500;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            margin-left: 2rem;
+            /* space-x-8 (split across elements) */
+        }
+
+        .desktop-nav a:hover {
+            color: var(--cyan-400);
+        }
+
+        .cta-button-header {
+            padding: 0.5rem 1.5rem;
+            /* px-6 py-2 */
+            font-size: 0.875rem;
+            /* text-sm */
+            font-weight: 600;
+            display: none;
+        }
+
+        .mobile-menu-icon {
+            font-size: 1.5rem;
+        }
+
+        /* Medium screens (md: breakpoint equivalent - 768px) */
+        @media (min-width: 768px) {
+            .main-header {
+                padding: 2rem;
+                /* md:p-8 */
+            }
+
+            .desktop-nav {
+                display: flex;
+            }
+
+            .cta-button-header {
+                display: block;
+            }
+
+            .mobile-menu-icon {
+                display: none;
+            }
+        }
+
+        /* --- 2. HERO SECTION --- */
+        .hero-section {
+            /* background-image: url('https://placehold.co/1920x800/030712/ffffff?text=Luxury+Yacht+A+at+Sea'); */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .back-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            object-fit: cover;
+        }
+
+        /* .hero-overlay {
+            position: absolute;
+            inset: 0;
+            opacity: 0.5;
+        } */
+
+        .hero-content {
+            z-index: 10;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .hero-heading {
+            font-size: 3rem;
+            /* text-5xl */
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-subtext {
+            font-size: 1.25rem;
+            /* text-xl */
+            color: #e5e7eb;
+            /* text-gray-200 */
+            margin-bottom: 2rem;
+            max-width: 42rem;
+            /* max-w-2xl */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-cta {
+            padding: 0.75rem 2.5rem;
+            /* px-10 py-3 */
+            font-size: 1.125rem;
+            /* text-lg */
+        }
+
+        @media (min-width: 768px) {
+            .hero-heading {
+                font-size: 4.5rem;
+                /* md:text-7xl */
+            }
+
+            .hero-content {
+                padding: 2rem;
+            }
+        }
+
+        /* --- 3. ABOUT / EXPERIENCE SECTION (Light Background) --- */
+        .section-separator {
+            background-color: var(--secondary-bg);
+            color: var(--text-dark);
+        }
+
+        .section-separator .heading-dark {
+            color: #111827;
+            /* text-gray-900 */
+        }
+
+        .section-separator .text-gray {
+            color: var(--gray-700);
+        }
+
+        .about-section {
+            padding-top: 4rem;
+            /* py-16 */
+            padding-bottom: 4rem;
+        }
+
+        .about-content-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+            /* md:gap-16 on larger screens, using gap-10 for mobile */
+        }
+
+        .about-image-col {
+            margin-bottom: 2.5rem;
+            /* mb-10 */
+        }
+
+        .about-image-col h2 {
+            font-size: 2.25rem;
+            /* text-4xl */
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-image-col img {
+            width: 100%;
+            height: auto;
+            border-radius: 0.75rem;
+        }
+
+        .about-text-col p {
+            font-size: 1.125rem;
+            /* text-lg */
+            margin-bottom: 2rem;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 2rem;
+            text-align: left;
+        }
+
+        .benefit-title {
+            font-size: 1.5rem;
+            /* text-2xl */
+            font-weight: 800;
+            color: var(--cyan-600);
+        }
+
+        .benefit-subtitle {
+            font-size: 0.875rem;
+            /* text-sm */
+            color: #6b7280;
+            /* text-gray-500 */
+            margin-top: 0.25rem;
+        }
+
+        .benefit-data {
+            font-size: 0.875rem;
+            /* text-sm */
+            color: #111827;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .about-section {
+                padding-top: 6rem;
+                /* md:py-24 */
+                padding-bottom: 6rem;
+            }
+
+            .about-content-grid {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 4rem;
+                /* md:gap-16 */
+                align-items: center;
+            }
+
+            .about-image-col {
+                margin-bottom: 0;
+                /* md:mb-0 */
+            }
+        }
+
+        /* --- 4. EXCLUSIVE FLEET SECTION --- */
+        .fleet-section {
+            padding-top: 4rem;
+            padding-bottom: 6rem;
+            background-color: #1f2937;
+            /* bg-gray-900 */
+        }
+
+        .fleet-section h2 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .fleet-section p {
+            color: #9ca3af;
+            /* text-gray-400 */
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .yacht-cards-grid {
+            display: grid;
+            gap: 2.5rem;
+            /* gap-10 */
+        }
+
+        .yacht-card {
+            border-radius: 0.75rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+        }
+
+        .yacht-card-layout {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .yacht-text-content {
+            padding: 1.5rem;
+            /* p-6 */
+            background-color: #f0fdfa;
+            /* bg-cyan-50 */
+            color: #1f2937;
+            flex-grow: 1;
+        }
+
+        .yacht-text-content h3 {
+            font-size: 1.875rem;
+            /* text-3xl */
+            font-weight: 700;
+            color: var(--cyan-700);
+            margin-bottom: 0.75rem;
+        }
+
+        .yacht-text-content p {
+            color: #4b5563;
+            /* text-gray-600 */
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+
+        .yacht-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            /* text-sm */
+            margin-bottom: 1.5rem;
+        }
+
+        .yacht-details strong {
+            color: #111827;
+        }
+
+        .yacht-card-button {
+            background-color: transparent;
+            border: 1px solid var(--cyan-700);
+            color: var(--cyan-700);
+            padding: 0.5rem 1.5rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .yacht-card-button:hover {
+            background-color: var(--cyan-700);
+            color: white;
+        }
+
+        .yacht-image-col {
+            background-color: #1f2937;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .yacht-image-col img {
+            width: 100%;
+            height: auto;
+            border-radius: 0.5rem;
+        }
+
+        @media (min-width: 768px) {
+
+            .fleet-section h2,
+            .fleet-section p {
+                text-align: left;
+            }
+
+            .yacht-cards-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .yacht-card-layout {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                display: grid;
+            }
+
+            .yacht-text-content {
+                grid-column: span 2 / span 2;
+                padding: 2rem;
+                /* md:p-8 */
+            }
+
+            .yacht-image-col {
+                grid-column: span 1 / span 1;
+            }
+        }
+
+        /* --- 5. HORIZONTAL GALLERY / CAROUSEL --- */
+        .gallery-section {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+            background-color: #1f2937;
+        }
+
+        .gallery-section h2 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+        .gallery {
+            display: flex;
+            justify-content: space-evenly;
+            margin: 5% auto 0;
+            height: 80%;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .gallery-box {
+            margin: 0 1%;
+            flex-grow: 1;
+            flex-basis: 0;
+            transition: all 1s ease 1ms;
+            gap: 20px;
+        }
+
+        .gallery-box img {
+            border: 4px solid black;
+            border-radius: 20px;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            transition: all 1s ease 1ms;
+        }
+
+        .gallery-box:hover {
+            flex-basis: 50%;
+        }
+
+        .active {
+            flex-basis: 50%;
+
+        }
+
+        .gallery:hover .active {
+            flex-basis: 0;
+
+        }
+
+        .gallery-box:nth-child(1):hover {
+
+            flex-basis: 50%;
+        }
+
+        @media (min-width: 768px) {
+            .scroll-item {
+                width: 24rem;
+                /* md:w-96 */
+                height: 16rem;
+                /* md:h-64 */
+            }
+        }
+
+        /* --- 6. FEATURED EXPERIENCES LIST --- */
+        .experiences-section {
+            padding-top: 4rem;
+            padding-bottom: 6rem;
+            background-color: #1f2937;
+        }
+
+        .experiences-section h2 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .experience-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .experience-item {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+        }
+
+        .experience-image-container {
+            margin-bottom: 1.5rem;
+            /* mb-6 */
+        }
+
+        .experience-image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 0.75rem;
+        }
+
+        .experience-number {
+            color: var(--cyan-400);
+            font-size: 1.875rem;
+            /* text-3xl */
+            font-weight: 800;
+            margin-bottom: 0.25rem;
+            display: block;
+        }
+
+        .experience-item h3 {
+            font-size: 1.5rem;
+            /* text-2xl */
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .experience-item p {
+            color: #9ca3af;
+            /* text-gray-400 */
+            margin-bottom: 1.5rem;
+        }
+
+        .experience-button {
+            background-color: transparent;
+            border: 1px solid #9ca3af;
+            color: #9ca3af;
+            padding: 0.5rem 1.5rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .experience-button:hover {
+            background-color: var(--gray-700);
+            color: white;
+            border-color: white;
+        }
+
+        @media (min-width: 768px) {
+            .experience-item-grid {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 3rem;
+                /* gap-12 */
+                align-items: center;
+            }
+
+            .exp-col-2 {
+                grid-column: span 2 / span 2;
+            }
+
+            .exp-col-1 {
+                grid-column: span 1 / span 1;
+            }
+
+            /* Alternating order using CSS grid order property */
+            .experience-item-grid:nth-child(even) .exp-col-2 {
+                order: 1;
+            }
+
+            .experience-item-grid:nth-child(even) .exp-col-1 {
+                order: 2;
+            }
+
+            .experience-image-container {
+                margin-bottom: 0;
+            }
+
+            .experience-number {
+                font-size: 3rem;
+                /* md:text-5xl */
+            }
+        }
+
+        /* --- 7. CLIENT TESTIMONIALS SECTION (Light Background) --- */
+        .testimonials-section {
+            padding-top: 4rem;
+            padding-bottom: 6rem;
+            text-align: center;
+        }
+
+        .testimonials-section h2 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: #111827;
+            /* text-gray-900 */
+        }
+
+        .testimonial-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            border: 1px solid #e5e7eb;
+            /* border-gray-200 */
+        }
+
+        .testimonial-card .stars {
+            color: #f59e0b;
+            /* text-yellow-500 */
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-card .name {
+            color: #111827;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .testimonial-card .quote {
+            color: #4b5563;
+            /* text-gray-600 */
+            font-style: italic;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-card .date {
+            font-size: 0.75rem;
+            color: #6b7280;
+            /* text-gray-500 */
+        }
+
+        .pagination-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+            gap: 0.5rem;
+        }
+
+        .dot-active {
+            width: 2.5rem;
+            /* w-10 */
+            height: 0.25rem;
+            border-radius: 9999px;
+            background-color: var(--cyan-400);
+        }
+
+        .dot-inactive {
+            width: 0.5rem;
+            /* w-2 */
+            height: 0.25rem;
+            border-radius: 9999px;
+            background-color: #9ca3af;
+            /* bg-gray-400 */
+        }
+
+        @media (min-width: 768px) {
+            .testimonial-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        /* --- 8. CTA / CONTACT SECTION --- */
+
+
+        /* --- 9. FOOTER --- */
+        .main-footer {
+            background-color: black;
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            gap: 2.5rem;
+            /* gap-10 */
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid #1f2937;
+            /* border-gray-800 */
+        }
+
+        .footer-logo-col {
+            grid-column: span 2 / span 2;
+        }
+
+        .footer-logo {
+            font-size: 1.875rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-mission {
+            color: #6b7280;
+            /* text-gray-500 */
+            font-size: 0.875rem;
+            max-width: 28rem;
+        }
+
+        .footer-heading {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--cyan-400);
+        }
+
+        .footer-links,
+        .footer-contact {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: #9ca3af;
+            /* text-gray-400 */
+        }
+
+        .footer-links a,
+        .footer-contact a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .footer-links a:hover {
+            color: var(--cyan-400);
+        }
+
+        .copyright-bar {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            color: #4b5563;
+            /* text-gray-600 */
+        }
+
+        .copyright-links {
+            margin-top: 1rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .copyright-links a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .copyright-links a:hover {
+            color: var(--cyan-400);
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: repeat(5, minmax(0, 1fr));
+            }
+
+            .copyright-bar {
+                flex-direction: row;
+            }
+
+            .copyright-links {
+                margin-top: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 1. HEADER / NAVIGATION -->
+    <header class="main-header">
+        <div class="header-container max-width-container">
+            <!-- Logo -->
+            <div class="logo-text">
+                Marine-<span class="logo-accent">Fleet</span>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav">
+                <a href="#" class="transition">Home</a>
+                <a href="#" class="transition">Fleet</a>
+                <a href="#" class="transition">luxuary</a>
+                <a href="#" class="transition">fishing</a>
+                <a href="#" class="transition">About us</a>
+                <a href="#" class="transition">Contact</a>
+            </nav>
+
+            <!-- CTA Button -->
+            <button class="cta-button cta-button-header rounded-full ">
+                <a href="booking.html">
+                    Book Now
+                </a>
+            </button>
+
+            <!-- Mobile Menu Icon -->
+            <button class="mobile-menu-icon" style="color: white;">
+                &#9776; <!-- Hamburger Icon -->
+            </button>
+        </div>
+    </header>
+
+    <!-- 2. HERO SECTION -->
+    <section class="hero-section">
+        <!-- Dark Overlay to ensure text readability -->
+        <video autoplay loop muted class="back-video">
+            <source src="Boats img/WhatsApp Video 2025-11-06 at 21.45.22_8c858a5e.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <!-- <div class="hero-overlay"></div> -->
+
+        <!-- <div class="hero-content max-width-container">
+            <h1 class="hero-heading tracking-tight">
+                Your Next Horizon Awaits: Unforgettable Journeys
+            </h1>
+            <p class="hero-subtext">
+                Step aboard the world's most exquisite yachts. We specialize in crafting seamless, private voyages to
+                breathtaking destinations, ensuring every moment is tailor-made and absolutely unforgettable.
+            </p>
+            <button class="cta-button hero-cta rounded-full shadow-xl">
+                Explore Destinations
+            </button>
+        </div> -->
+    </section>
+
+    <!-- 3. ABOUT / EXPERIENCE SECTION (Light Background) -->
+    <section class="about-section section-separator">
+        <div class="max-width-container">
+            <div class="about-content-grid">
+
+                <!-- Left Side: Image -->
+                <div class="about-image-col">
+                    <h2 class="heading-dark">
+                        The Difference is in the Details: Your Perfect Sea Escape
+                    </h2>
+                    <img class="rounded-xl shadow-2xl hover-lift"
+                        src="https://placehold.co/600x400/0ea5e9/ffffff?text=Yacht+Sailing+at+Sunset"
+                        alt="Yacht sailing at sunset">
+                </div>
+
+                <!-- Right Side: Text & Benefits -->
+                <div class="about-text-col">
+                    <p class="text-gray">
+                        After years of perfecting the art of luxury charters, we know exactly how to deliver an
+                        unparalleled journey. Everything, from the moment you step off the plane to when you drop anchor
+                        in a secluded cove, is managed by our dedicated crew, so you can truly relax and just savor the
+                        sea air.
+                    </p>
+
+                    <div class="benefits-grid">
+                        <!-- Benefit 1 -->
+                        <div>
+                            <div class="benefit-title">Exclusive Fleet</div>
+                            <p class="benefit-subtitle">Curated for every desire.</p>
+                            <p class="benefit-data">15+ vessels in 5 locations.</p>
+                        </div>
+                        <!-- Benefit 2 -->
+                        <div>
+                            <div class="benefit-title">Global Destinations</div>
+                            <p class="benefit-subtitle">Beyond the obvious oceans.</p>
+                            <p class="benefit-data">10+ secret harbors & islands.</p>
+                        </div>
+                        <!-- Benefit 3 -->
+                        <div>
+                            <div class="benefit-title">Bespoke Experiences</div>
+                            <p class="benefit-subtitle">Everything planned for you.</p>
+                            <p class="benefit-data">Seamless service from airport to yacht.</p>
+                        </div>
+                        <!-- Benefit 4 -->
+                        <div>
+                            <div class="benefit-title">Expert Guidance</div>
+                            <p class="benefit-subtitle">Our team since 2010.</p>
+                            <p class="benefit-data">Professional captains and crew.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. EXCLUSIVE FLEET SECTION (Dark Background - Two-Tone Cards) -->
+    <section class="fleet-section">
+        <div class="max-width-container">
+            <h2 class="text-4xl font-bold mb-4">Our Exclusive Fleet</h2>
+            <p class="text-gray-400 mb-12">
+                A selection of our most popular and exclusive yachts for your next voyage.
+            </p>
+
+            <div class="yacht-cards-grid">
+                <!-- Yacht Card 1: Serenity Wave -->
+                <div class="yacht-card hover-lift">
+                    <div class="yacht-card-layout">
+                        <!-- Text Content -->
+                        <div class="yacht-text-content">
+                            <h3>Serenity Wave</h3>
+                            <p>
+                                She’s a true masterpiece, blending modern engineering with timeless elegance. Serenity
+                                Wave is perfectly suited for a luxurious family escape or an intimate, high-end
+                                celebration.
+                            </p>
+                            <div class="yacht-details">
+                                <p><strong>Length:</strong> 120 ft</p>
+                                <p><strong>Guests:</strong> 10</p>
+                                <p><strong>Cabins:</strong> 5</p>
+                                <p><strong>Speed:</strong> 25 Knots</p>
+                            </div>
+                            <button class="yacht-card-button transition">
+                                View Details
+                            </button>
+                        </div>
+                        <!-- Image -->
+                        <div class="yacht-image-col">
+                            <img class="rounded-lg shadow-xl"
+                                src="https://placehold.co/300x200/22d3ee/030712?text=Yacht+A"
+                                alt="The Serenity Wave Yacht">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Yacht Card 2: Ocean's Embrace -->
+                <div class="yacht-card hover-lift">
+                    <div class="yacht-card-layout">
+                        <!-- Text Content -->
+                        <div class="yacht-text-content">
+                            <h3>Ocean's Embrace</h3>
+                            <p>
+                                This is the ultimate gathering vessel. Imagine an expansive sun deck, a full-service
+                                bar, and state-of-the-art entertainment—Ocean's Embrace is ready to host your next
+                                spectacular event.
+                            </p>
+                            <div class="yacht-details">
+                                <p><strong>Length:</strong> 95 ft</p>
+                                <p><strong>Guests:</strong> 8</p>
+                                <p><strong>Cabins:</strong> 4</p>
+                                <p><strong>Speed:</strong> 30 Knots</p>
+                            </div>
+                            <button class="yacht-card-button transition">
+                                View Details
+                            </button>
+                        </div>
+                        <!-- Image -->
+                        <div class="yacht-image-col">
+                            <img class="rounded-lg shadow-xl"
+                                src="https://placehold.co/300x200/22d3ee/030712?text=Yacht+B"
+                                alt="The Ocean's Embrace Yacht">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. HORIZONTAL GALLERY / CAROUSEL -->
+    <section class="gallery-section">
+        <div class="max-width-container">
+            <h2>Gallery of Moments</h2>
+            <!-- Horizontal Scroll Container -->
+            <div class="gallery">
+                <div class="gallery-box ">
+                    <img src="Boats img/img1.jpeg" alt="">
+                </div>
+                <div class="gallery-box">
+                    <img src="Boats img/img2.jpeg" alt="">
+                </div>
+                <div class="gallery-box">
+                    <img src="Boats img/img3.jpg" alt="">
+                </div>
+                <div class="gallery-box active">
+                    <img src="Boats img/img4.jpg" alt="">
+                </div>
+                <div class="gallery-box">
+                    <img src="Boats img/img5.jpg" alt="">
+                </div>
+                <div class="gallery-box">
+                    <img src="Boats img/img6.jpg" alt="">
+                </div>
+                <div class="gallery-box">
+                    <img src="Boats img/img1.jpeg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. FEATURED EXPERIENCES LIST (Dark Background with Structured Items) -->
+    <section class="experiences-section">
+        <div class="max-width-container">
+            <h2>Experiences We Offer</h2>
+
+            <div class="experience-list">
+
+                <!-- Experience 1: Sunset Cruises -->
+                <div class="experience-item experience-item-grid">
+                    <!-- Content (md: order 1) -->
+                    <div class="exp-col-2">
+                        <span class="experience-number">01</span>
+                        <h3>Sunset Cruises</h3>
+                        <p>
+                            There’s nothing quite like watching the sun melt into the ocean. Settle back and relax as
+                            your personal captain guides you to the best vantage point for a truly spectacular show of
+                            gold and crimson.
+                        </p>
+                        <button class="experience-button transition">
+                            View Options
+                        </button>
+                    </div>
+                    <!-- Image (md: order 2) -->
+                    <div class="exp-col-1 experience-image-container">
+                        <img class="rounded-xl shadow-xl hover-lift"
+                            src="https://placehold.co/400x250/374151/f3f4f6?text=Sunset+Cruise"
+                            alt="Sunset cruise on a yacht">
+                    </div>
+                </div>
+
+                <!-- Experience 2: Private Events -->
+                <div class="experience-item experience-item-grid">
+                    <!-- Image (md: order 1) -->
+                    <div class="exp-col-1 experience-image-container">
+                        <img class="rounded-xl shadow-xl hover-lift"
+                            src="https://placehold.co/400x250/374151/f3f4f6?text=Private+Event"
+                            alt="Formal event on a yacht deck">
+                    </div>
+                    <!-- Content (md: order 2) -->
+                    <div class="exp-col-2">
+                        <span class="experience-number">02</span>
+                        <h3>Private Events</h3>
+                        <p>
+                            Mark life’s milestones—from anniversaries to corporate achievements—on the water. We handle
+                            every detail of catering and planning, guaranteeing a flawless, memorable, and stunning
+                            gathering.
+                        </p>
+                        <button class="experience-button transition">
+                            View Packages
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Experience 3: Corporate Retreats -->
+                <div class="experience-item experience-item-grid">
+                    <!-- Content (md: order 1) -->
+                    <div class="exp-col-2">
+                        <span class="experience-number">03</span>
+                        <h3>Corporate Retreats</h3>
+                        <p>
+                            Ditch the boardroom for the open sea. Inspire new thinking and strengthen team bonds in a
+                            refreshing, luxurious setting far from the office. All necessary presentation and A/V
+                            equipment is included.
+                        </p>
+                        <button class="experience-button transition">
+                            Get Quote
+                        </button>
+                    </div>
+                    <!-- Image (md: order 2) -->
+                    <div class="exp-col-1 experience-image-container">
+                        <img class="rounded-xl shadow-xl hover-lift"
+                            src="https://placehold.co/400x250/374151/f3f4f6?text=Corporate+Team"
+                            alt="Business meeting on a yacht">
+                    </div>
+                </div>
+
+                <!-- Experience 4: Island Hopping -->
+                <div class="experience-item-grid">
+                    <!-- Image (md: order 1) -->
+                    <div class="exp-col-1 experience-image-container">
+                        <img class="rounded-xl shadow-xl hover-lift"
+                            src="https://placehold.co/400x250/374151/f3f4f6?text=Island+Hopping"
+                            alt="Yacht anchored near a tropical island">
+                    </div>
+                    <!-- Content (md: order 2) -->
+                    <div class="exp-col-2">
+                        <span class="experience-number">04</span>
+                        <h3>Island Hopping</h3>
+                        <p>
+                            Discover the hidden corners of the world, whether in the Mediterranean or the Caribbean. Our
+                            seasoned captains know every secluded beach and perfect spot for snorkeling or simply
+                            relaxing.
+                        </p>
+                        <button class="experience-button transition">
+                            Book Adventure
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. CLIENT TESTIMONIALS SECTION (Light Background, White Cards) -->
+    <section class="testimonials-section section-separator">
+        <div class="max-width-container">
+            <h2 class="text-4xl font-bold mb-12">What Our Clients Say</h2>
+
+            <div class="testimonial-grid">
+                <!-- Testimonial Card 1 -->
+                <div class="testimonial-card hover-lift">
+                    <div class="stars">★★★★★</div>
+                    <p class="name">John Loise</p>
+                    <p class="quote">
+                        "The yacht was stunning, and the crew's attention to every detail truly made this trip
+                        spectacular."
+                    </p>
+                    <p class="date">April, 2025</p>
+                </div>
+
+                <!-- Testimonial Card 2 -->
+                <div class="testimonial-card hover-lift">
+                    <div class="stars">★★★★★</div>
+                    <p class="name">Sofia Riley</p>
+                    <p class="quote">
+                        "The sailboat was breathtaking, and the seamless service made our anniversary unforgettable.
+                        Highly recommended!"
+                    </p>
+                    <p class="date">January, 2025</p>
+                </div>
+
+                <!-- Testimonial Card 3 -->
+                <div class="testimonial-card hover-lift">
+                    <div class="stars">★★★★★</div>
+                    <p class="name">Christopher</p>
+                    <p class="quote">
+                        "The yacht was stunning, and the crew's attention to every detail truly made this trip
+                        spectacular. Amazing service!"
+                    </p>
+                    <p class="date">November, 2024</p>
+                </div>
+            </div>
+
+            <!-- Pagination Indicator -->
+            <div class="pagination-dots">
+                <div class="dot-active"></div>
+                <div class="dot-inactive"></div>
+                <div class="dot-inactive"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. CTA / CONTACT SECTION (Plan Your Yacht Experience Today) -->
+
+    <!-- 9. FOOTER -->
+    <footer class="main-footer">
+        <div class="max-width-container">
+            <div class="footer-grid">
+                <!-- Col 1: Logo & Mission -->
+                <div class="footer-logo-col">
+                    <div class="footer-logo">
+                        VOYA-<span class="logo-accent">GO</span>
+                    </div>
+                    <p class="footer-mission">
+                        We plan your personalized yachting experience, ensuring you explore the world's oceans in
+                        ultimate style and privacy.
+                    </p>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="transition">Home</a></li>
+                        <li><a href="#" class="transition">Our Fleet</a></li>
+                        <li><a href="#" class="transition">Destinations</a></li>
+                        <li><a href="#" class="transition">Blog</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Support -->
+                <div>
+                    <h4 class="footer-heading">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="transition">Contact Us</a></li>
+                        <li><a href="#" class="transition">FAQ</a></li>
+                        <li><a href="#" class="transition">Careers</a></li>
+                        <li><a href="#" class="transition">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Contact -->
+                <div>
+                    <h4 class="footer-heading">Contact</h4>
+                    <ul class="footer-contact">
+                        <li>+1 (555) 123-4567</li>
+                        <li>info@voyago.com</li>
+                        <li>Marina Del Rey, CA</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright Bar -->
+            <div class="copyright-bar">
+                <p>&copy; 2025 VOYA-GO. All Rights Reserved.</p>
+                <div class="copyright-links">
+                    <a href="#" class="transition">Privacy Policy</a>
+                    <a href="#" class="transition">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
