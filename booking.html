@@ -20,6 +20,10 @@
         --cyan-400: #22d3ee;
         --gray-700: #374151;
     }
+    *{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    
 
     /* Body */
     body {
@@ -52,6 +56,7 @@
         color: white;
         font-size: 1.5rem;
         font-weight: 700;
+        padding-left: 80px;
     }
 
     .logo-accent {
@@ -67,11 +72,9 @@
         color: white;
         text-decoration: none;
         font-size: -0.875rem;
-        /* text-sm */
         font-weight: 500;
         margin-left: 2rem;
         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-        /* space-x-8 (split across elements) */
     }
 
     .desktop-nav a:hover {
@@ -85,13 +88,12 @@
 
     .cta-button-header {
         padding: 0.5rem 1.5rem;
-        /* px-6 py-2 */
         font-size: 0.875rem;
-        /* text-sm */
         font-weight: 600;
         display: none;
         background-color: var(--accent-blue);
         border-radius: 20px;
+        margin-right:80px ;
     }
 
     .mobile-menu-icon {
@@ -251,107 +253,171 @@
     }
 
     /* --- 9. FOOTER --- */
-    .main-footer {
-        background-color: black;
-        padding-top: 4rem;
-        padding-bottom: 4rem;
-    }
+   .main-footer {
+            background-color: black;
+            padding-top: 4rem;
+            
+            padding-bottom: 4rem;
+        }
 
-    .footer-grid {
-        display: grid;
-        gap: 2.5rem;
-        /* gap-10 */
-        padding-bottom: 2.5rem;
-        border-bottom: 1px solid #1f2937;
-        /* border-gray-800 */
-    }
-
-    .footer-logo-col {
-        grid-column: span 2 / span 2;
-    }
-
-    .footer-logo {
-        color: white;
-        font-size: 1.875rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-    }
-
-    .footer-mission {
-        color: #6b7280;
-        /* text-gray-500 */
-        font-size: 0.875rem;
-        max-width: 28rem;
-    }
-
-    .footer-heading {
-        font-size: 1.125rem;
-        font-weight: 600;
-        margin-bottom: 1rem;
-        color: var(--cyan-400);
-    }
-
-    .footer-links,
-    .footer-contact {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        font-size: 0.875rem;
-        color: #9ca3af;
-        /* text-gray-400 */
-    }
-
-    .footer-links a,
-    .footer-contact a {
-        text-decoration: none;
-        color: inherit;
-    }
-
-    .footer-links a:hover {
-        color: var(--cyan-400);
-    }
-
-    .copyright-bar {
-        margin-top: 2rem;
-        padding-top: 1rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        font-size: 0.75rem;
-        color: #4b5563;
-        /* text-gray-600 */
-    }
-
-    .copyright-links {
-        margin-top: 1rem;
-        display: flex;
-        gap: 1rem;
-    }
-
-    .copyright-links a {
-        text-decoration: none;
-        color: inherit;
-    }
-
-    .copyright-links a:hover {
-        color: var(--cyan-400);
-    }
-
-    @media (min-width: 768px) {
         .footer-grid {
-            grid-template-columns: repeat(5, minmax(0, 1fr));
+            display: grid;
+            gap: 2.5rem;
+            /* gap-10 */
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid #1f2937;
+            /* border-gray-800 */
+        }
+
+        .footer-logo-col {
+            grid-column: span 2 / span 2;
+            margin-left: 150px;
+            color: white;
+        }
+
+        .footer-logo {
+            font-size: 1.875rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-mission {
+            color: #6b7280;
+            /* text-gray-500 */
+            font-size: 0.875rem;
+            max-width: 28rem;
+        }
+
+        .footer-heading {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--cyan-400);
+            padding-left: 150px;
+        }
+
+        .footer-links,
+        .footer-contact {
+            list-style: none;
+            padding-left: 150px;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: #9ca3af;
+
+        }
+
+        .footer-links a,
+        .footer-contact a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .footer-links a:hover {
+            color: var(--cyan-400);
         }
 
         .copyright-bar {
-            flex-direction: row;
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            /* display: flex; */
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            font-size: -0.75rem;
+            color: #4b5563;
         }
 
         .copyright-links {
-            margin-top: 0;
+            margin-top: 1rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .copyright-links a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .copyright-links a:hover {
+            color: var(--cyan-400);
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: repeat(5, minmax(0, 1fr));
+            }
+
+            .copyright-bar {
+                flex-direction: row;
+            }
+
+            .copyright-links {
+                margin-top: 0;
+            }
+        }
+
+
+    /* --- RESPONSIVENESS (Media Queries) --- */
+    @media (min-width: 768px) {
+        :root {
+            --header-height: 7rem;
+            /* Adjust header height for larger screens */
+        }
+
+        body {
+            padding-top: var(--header-height);
+        }
+
+        .hero {
+            height: 80vh;
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+        }
+
+        .main-header {
+            padding: 1.5rem 0;
+            /* Adjust vertical padding */
+        }
+
+        .desktop-nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .cta-button-header {
+            display: block;
+        }
+
+        .mobile-menu-icon {
+            display: none;
+        }
+
+        .features-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .yacht-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .form-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .hero-title {
+            font-size: 5rem;
+        }
+
+        .yacht-grid {
+            grid-template-columns: repeat(3, 1fr);
         }
     }
 </style>
@@ -476,15 +542,15 @@
                 <div>
                     <h4 class="footer-heading">Quick Links</h4>
                     <ul class="footer-links">
-                        <li><a href="#" class="transition">Home</a></li>
+                        <li><a href="index.html" class="transition">Home</a></li>
                         <li><a href="#" class="transition">Our Fleet</a></li>
-                        <li><a href="#" class="transition">Destinations</a></li>
-                        <li><a href="#" class="transition">Blog</a></li>
+                        <li><a href="" class="transition">Contect Us</a></li>
+                        <li><a href="#" class="transition"></a>FAQ</li>
                     </ul>
                 </div>
 
                 <!-- Col 3: Support -->
-                <div>
+                <!-- <div>
                     <h4 class="footer-heading">Support</h4>
                     <ul class="footer-links">
                         <li><a href="#" class="transition">Contact Us</a></li>
@@ -492,13 +558,13 @@
                         <li><a href="#" class="transition">Careers</a></li>
                         <li><a href="#" class="transition">Terms & Conditions</a></li>
                     </ul>
-                </div>
+                </div> -->
 
                 <!-- Col 4: Contact -->
                 <div>
                     <h4 class="footer-heading">Contact</h4>
                     <ul class="footer-contact">
-                        <li>+1 (555) 123-4567</li>
+                        <li>3712-93719289</li>
                         <li>info@voyago.com</li>
                         <li>Marina Del Rey, CA</li>
                     </ul>
@@ -507,11 +573,8 @@
 
             <!-- Copyright Bar -->
             <div class="copyright-bar">
-                <p>&copy; 2025 Marina-Fleet. All Rights Reserved.</p>
-                <div class="copyright-links">
-                    <a href="#" class="transition">Privacy Policy</a>
-                    <a href="#" class="transition">Cookies</a>
-                </div>
+                <p>&copy; 2025 VOYA-GO. All Rights Reserved.</p>
+                
             </div>
         </div>
     </footer>

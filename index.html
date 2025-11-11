@@ -23,6 +23,10 @@
             --gray-700: #374151;
         }
 
+        * {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
         /* Base styles */
         body {
             background-color: var(--primary-bg);
@@ -113,9 +117,10 @@
             right: 0;
             z-index: 100;
             padding: 1rem;
-            /* p-4 */
-            background-color: transparent;
-            /* backdrop-filter: blur(10px); */
+            border-radius: 10px;
+            background-color: #111827b4;
+            backdrop-filter: blur(10px);
+            height: 30px;
         }
 
         .header-container {
@@ -151,6 +156,8 @@
 
         .desktop-nav a:hover {
             color: var(--cyan-400);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+            transform: translateY(-3px);
         }
 
         .cta-button-header {
@@ -230,24 +237,8 @@
             line-height: 1.1;
         }
 
-        .hero-subtext {
-            font-size: 1.25rem;
-            /* text-xl */
-            color: #e5e7eb;
-            /* text-gray-200 */
-            margin-bottom: 2rem;
-            max-width: 42rem;
-            /* max-w-2xl */
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero-cta {
-            padding: 0.75rem 2.5rem;
-            /* px-10 py-3 */
-            font-size: 1.125rem;
-            /* text-lg */
-        }
+        
+       
 
         @media (min-width: 768px) {
             .hero-heading {
@@ -891,7 +882,7 @@
                 <a href="#" class="transition">Fleet</a>
                 <a href="#" class="transition">luxuary</a>
                 <a href="#" class="transition">fishing</a>
-                <a href="#" class="transition">About us</a>
+                <a href="about us.html" class="transition">About us</a>
                 <a href="#" class="transition">Contact</a>
             </nav>
 
@@ -918,18 +909,11 @@
         </video>
         <!-- <div class="hero-overlay"></div> -->
 
-        <!-- <div class="hero-content max-width-container">
+        <div class="hero-content max-width-container">
             <h1 class="hero-heading tracking-tight">
                 Your Next Horizon Awaits: Unforgettable Journeys
             </h1>
-            <p class="hero-subtext">
-                Step aboard the world's most exquisite yachts. We specialize in crafting seamless, private voyages to
-                breathtaking destinations, ensuring every moment is tailor-made and absolutely unforgettable.
-            </p>
-            <button class="cta-button hero-cta rounded-full shadow-xl">
-                Explore Destinations
-            </button>
-        </div> -->
+        </div>
     </section>
 
     <!-- 3. ABOUT / EXPERIENCE SECTION (Light Background) -->
