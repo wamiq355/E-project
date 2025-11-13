@@ -28,7 +28,7 @@
         --max-width: 1280px;
         --header-height: 5rem;
     }
-    
+
 
     * {
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -422,114 +422,126 @@
 
     }
 
+    .location iframe {
+        border: 2px solid black;
+        border-radius: 20px;
+    }
+
+    .location {
+        text-align: center;
+
+    }
+    
+   
+
 
 
     /* --- FOOTER --- */
     .main-footer {
-            background-color: black;
-            padding-top: 4rem;
-            
-            padding-bottom: 4rem;
-        }
+        background-color: black;
+        padding-top: 4rem;
 
+        padding-bottom: 4rem;
+    }
+
+    .footer-grid {
+        display: grid;
+        gap: 2.5rem;
+        /* gap-10 */
+        padding-bottom: 2.5rem;
+        border-bottom: 1px solid #1f2937;
+        /* border-gray-800 */
+    }
+
+    .footer-logo-col {
+        grid-column: span 2 / span 2;
+        margin-left: 150px;
+    }
+
+    .footer-logo {
+        font-size: 1.875rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+
+    .footer-mission {
+        color: #6b7280;
+        /* text-gray-500 */
+        font-size: 0.875rem;
+        max-width: 28rem;
+    }
+
+    .footer-heading {
+        font-size: 1.125rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: var(--cyan-400);
+        padding-left: 150px;
+    }
+
+    .footer-links,
+    .footer-contact {
+        list-style: none;
+        padding-left: 150px;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        font-size: 0.875rem;
+        color: #9ca3af;
+
+    }
+
+    .footer-links a,
+    .footer-contact a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .footer-links a:hover {
+        color: var(--cyan-400);
+    }
+
+    .copyright-bar {
+        text-align: center;
+        margin-top: 2rem;
+        padding-top: 1rem;
+        /* display: flex; */
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        font-size: -0.75rem;
+        color: #4b5563;
+    }
+
+    .copyright-links {
+        margin-top: 1rem;
+        display: flex;
+        gap: 1rem;
+    }
+
+    .copyright-links a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .copyright-links a:hover {
+        color: var(--cyan-400);
+    }
+
+    @media (min-width: 768px) {
         .footer-grid {
-            display: grid;
-            gap: 2.5rem;
-            /* gap-10 */
-            padding-bottom: 2.5rem;
-            border-bottom: 1px solid #1f2937;
-            /* border-gray-800 */
-        }
-
-        .footer-logo-col {
-            grid-column: span 2 / span 2;
-            margin-left: 150px;
-        }
-
-        .footer-logo {
-            font-size: 1.875rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .footer-mission {
-            color: #6b7280;
-            /* text-gray-500 */
-            font-size: 0.875rem;
-            max-width: 28rem;
-        }
-
-        .footer-heading {
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--cyan-400);
-            padding-left: 150px;
-        }
-
-        .footer-links,
-        .footer-contact {
-            list-style: none;
-            padding-left: 150px;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            font-size: 0.875rem;
-            color: #9ca3af;
-
-        }
-
-        .footer-links a,
-        .footer-contact a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .footer-links a:hover {
-            color: var(--cyan-400);
+            grid-template-columns: repeat(5, minmax(0, 1fr));
         }
 
         .copyright-bar {
-            text-align: center;
-            margin-top: 2rem;
-            padding-top: 1rem;
-            /* display: flex; */
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            font-size: -0.75rem;
-            color: #4b5563;
+            flex-direction: row;
         }
 
         .copyright-links {
-            margin-top: 1rem;
-            display: flex;
-            gap: 1rem;
+            margin-top: 0;
         }
-
-        .copyright-links a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .copyright-links a:hover {
-            color: var(--cyan-400);
-        }
-
-        @media (min-width: 768px) {
-            .footer-grid {
-                grid-template-columns: repeat(5, minmax(0, 1fr));
-            }
-
-            .copyright-bar {
-                flex-direction: row;
-            }
-
-            .copyright-links {
-                margin-top: 0;
-            }
-        }
+    }
 
 
     /* --- RESPONSIVENESS (Media Queries) --- */
@@ -604,17 +616,15 @@
 
             <!-- Desktop Navigation -->
             <nav class="desktop-nav">
-                <a href="#" class="transition">Home</a>
-                <a href="#" class="transition">Fleet</a>
-                <a href="#" class="transition">luxuary</a>
-                <a href="#" class="transition">fishing</a>
-                <a href="about us.html" class="transition">About us</a>
-                <a href="#" class="transition">Contact</a>
+                <a href="index.html" target="_blank" class="transition">Home</a>
+                <a href="#" target="_blank" class="transition">Fleet</a>
+                <a href="about us.html" target="_blank" class="transition">About us</a>
+                <a href="contect us.html" target="_blank" class="transition">Contact</a>
             </nav>
 
             <!-- CTA Button -->
             <button class="cta-button cta-button-header rounded-full ">
-                <a href="booking.html">
+                <a target="_blank" href="booking.html">
                     Book Now
                 </a>
             </button>
@@ -801,104 +811,32 @@
             <span style="color: green; ">✔</span> Perfect for private events, tours, or vacations
             <br>
         </div>
+
     </div>
-    <!-- 4. YACHT FLEET SHOWCASE
-    <section id="fleet" class="fleet-section section-padding">
-        <div class="container">
-            <h2 class="fleet-title">
-                Our <span>Exquisite Fleet</span>
-            </h2>
-
-            <div class="yacht-grid">
-                
-                Yacht Card 1: The Apex
-                <div class="yacht-card">
-                    <img class="yacht-image" 
-                         src="https://placehold.co/800x450/3b82f6/ffffff?text=YACHT+THE+APEX" 
-                         alt="The Apex Yacht">
-                    <div class="yacht-content">
-                        <h3 class="yacht-name">The Apex</h3>
-                        <p class="yacht-desc">
-                            Our flagship motor yacht, designed for speed and ultimate comfort on transatlantic voyages.
-                        </p>
-                        <div class="yacht-details">
-                            <div class="detail-item">
-                                <span class="detail-icon">&#9632;</span> 120 ft Length
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-icon">&#9999;</span> 12 Guests, 7 Crew
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-icon">&#9864;</span> 6 Staterooms
-                            </div>
-                        </div>
-                        <a href="#booking" class="detail-button">
-                            View Details
-                        </a>
-                    </div>
-                </div>
-
-                Yacht Card 2: The Serenity
-                <div class="yacht-card">
-                    <img class="yacht-image" 
-                         src="https://placehold.co/800x450/22c55e/0f172a?text=YACHT+THE+SERENITY" 
-                         alt="The Serenity Yacht">
-                    <div class="yacht-content">
-                        <h3 class="yacht-name">The Serenity</h3>
-                        <p class="yacht-desc">
-                            A beautiful sailing yacht offering a classic experience with modern, silent luxury.
-                        </p>
-                        <div class="yacht-details">
-                            <div class="detail-item">
-                                <span class="detail-icon">&#9632;</span> 90 ft Length
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-icon">&#9999;</span> 8 Guests, 4 Crew
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-icon">&#9864;</span> 4 Staterooms
-                            </div>
-                        </div>
-                        <a href="#booking" class="detail-button">
-                            View Details
-                        </a>
-                    </div>
-                </div>
-
-                Yacht Card 3: The Day Cruiser
-                <div class="yacht-card">
-                    <img class="yacht-image" 
-                         src="https://placehold.co/800x450/475569/ffffff?text=YACHT+DAY+CRUISER" 
-                         alt="The Day Cruiser Yacht">
-                    <div class="yacht-content">
-                        <h3 class="yacht-name">The Cruiser</h3>
-                        <p class="yacht-desc">
-                            Perfect for executive meetings or luxurious short-haul day charters with high-end amenities.
-                        </p>
-                        <div class="yacht-details">
-                            <div class="detail-item">
-                                <span class="detail-icon">&#9632;</span> 65 ft Length
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-icon">&#9999;</span> 10 Guests (Day Charter)
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-icon">&#9864;</span> 2 Cabins
-                            </div>
-                        </div>
-                        <a href="#booking" class="detail-button">
-                            View Details
-                        </a>
-                    </div>
-                </div>
-                
-            </div>
+    <div class="Aboutus">
+        <div class="heading">
+            <h1>🗺 Our Location</h1>
         </div>
-    </section> -->
+        <div class="title">
+            <h3>Discover Luxury. Sail Beyond Ordinary</h3>
+        </div>
+        <div class="content">
+            <div class="location">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3617.7978330697188!2d67.04237307586966!3d24.938956142111223!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33f3daae54d55%3A0x5dae2a3a4b71f12a!2sAptech%20Learning%20North%20Nazimabad%20II%20Center!5e0!3m2!1sen!2s!4v1762955530375!5m2!1sen!2s"
+                    width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+            </div>
+
+        </div>
+    </div>
+    
+
 
 
     <!-- footer  -->
-      <footer class="main-footer">
+    <footer class="main-footer">
         <div class="max-width-container">
             <div class="footer-grid">
                 <!-- Col 1: Logo & Mission -->
@@ -923,16 +861,7 @@
                     </ul>
                 </div>
 
-                <!-- Col 3: Support -->
-                <!-- <div>
-                    <h4 class="footer-heading">Support</h4>
-                    <ul class="footer-links">
-                        <li><a href="#" class="transition">Contact Us</a></li>
-                        <li><a href="#" class="transition">FAQ</a></li>
-                        <li><a href="#" class="transition">Careers</a></li>
-                        <li><a href="#" class="transition">Terms & Conditions</a></li>
-                    </ul>
-                </div> -->
+
 
                 <!-- Col 4: Contact -->
                 <div>
@@ -948,7 +877,7 @@
             <!-- Copyright Bar -->
             <div class="copyright-bar">
                 <p>&copy; 2025 VOYA-GO. All Rights Reserved.</p>
-                
+
             </div>
         </div>
     </footer>

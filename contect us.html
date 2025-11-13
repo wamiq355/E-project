@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* contact  */
+        :root {
+            --primary-bg: #030712;
+            --secondary-bg: #F4F6F8;
+            --fleet-card-light: #E0F7FA;
+            --accent-blue: #38bdf8;
+            --dark-gray-bg: #111827;
+            --text-dark: #1f2937;
+            --text-light: white;
+            --cyan-600: #0891b2;
+            --cyan-700: #0e7490;
+            --cyan-400: #22d3ee;
+            --gray-700: #374151;
+        }
+
+        * {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        /* --- 1. HEADER / NAVIGATION --- */
+        /* navbar */
+
+        .main-header {
+            backdrop-filter: blur(5px);
+            background-color: #111827b4;
+            border-radius: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10;
+            padding: 1rem;
+            /* p-4 */
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+        }
+
+        .logo-text {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            padding-left: 80px;
+        }
+
+        .logo-accent {
+            color: var(--cyan-400);
+        }
+
+        .desktop-nav {
+            display: none;
+            /* hidden on mobile */
+        }
+
+        .desktop-nav a {
+            color: white;
+            text-decoration: none;
+            font-size: -0.875rem;
+            font-weight: 500;
+            margin-left: 2rem;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .desktop-nav a:hover {
+            color: var(--cyan-400);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+            transform: translateY(-3px);
+        }
+
+        .cta-button a {
+            color: black;
+            text-decoration: none;
+        }
+
+        .cta-button-header {
+            padding: 0.5rem 1.5rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: none;
+            background-color: var(--accent-blue);
+            border-radius: 20px;
+            margin-right: 80px;
+        }
+
+        .mobile-menu-icon {
+            font-size: 1.5rem;
+        }
+
+        /* Medium screens (md: breakpoint equivalent - 768px) */
+        @media (min-width: 768px) {
+            .main-header {
+                padding: 2rem;
+                /* md:p-8 */
+            }
+
+            .desktop-nav {
+                display: flex;
+            }
+
+            .cta-button-header {
+                display: block;
+            }
+
+            .mobile-menu-icon {
+                display: none;
+            }
+        }
+
+        .cta-contact-section {
+            padding-top: 4rem;
+            padding-bottom: 6rem;
+            background-color: #1f2937;
+        }
+
+        .cta-contact-box {
+            margin-top: 120px;
+            background-color: var(--dark-gray-bg);
+            padding: 1rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            padding: 50px;
+        }
+
+        .cta-content h4 {
+            color: var(--accent-blue);
+            font-size: 1.875rem;
+        }
+
+
+
+        .cta-content h1 {
+            font-size: 3.875rem;
+            font-weight: 800;
+            color: white;
+        }
+
+        .cta-content h2 .accent {
+            color: var(--cyan-400);
+        }
+
+        .cta-content p {
+            color: #9ca3af;
+            margin-bottom: 2rem;
+            max-width: 28rem;
+        }
+
+        .cta-icon-div {
+            margin-top: -3rem;
+        }
+
+        .cta-icon {
+            padding: -1rem;
+            display: flex;
+        }
+
+        .cta-icon img {
+            position: relative;
+            top: 8px;
+            left: -0.3rem;
+            height: 40px;
+            width: 40px;
+        }
+
+
+        .contact-form {
+            padding-top: 150px;
+            margin-right: 30%;
+
+        }
+
+
+
+        .form-fields {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            background-color: #1f2937;
+            /* bg-gray-800 */
+            border: 1px solid #374151;
+            /* border-gray-700 */
+            color: white;
+            align-items: center;
+            display: flex;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: var(--cyan-400);
+            box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.5);
+            /* focus:ring-cyan-400 */
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        textarea.input-field {
+            resize: vertical;
+        }
+
+        .form-submit-button {
+            width: 100%;
+            background-color: aqua;
+            border-radius: 20px;
+            padding: 0.75rem 1.5rem;
+            font-size: 1.125rem;
+            margin-top: 1rem;
+            margin-left: 13px;
+        }
+
+        .input-date {
+            color: #9ca3af;
+            /* text-gray-400 */
+        }
+
+        @media (min-width: 768px) {
+            .cta-content-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                display: grid;
+                gap: 3rem;
+                align-items: flex-start;
+            }
+
+            .cta-content h2 {
+                font-size: 3rem;
+                /* md:text-5xl */
+            }
+
+            .contact-form {
+                margin-top: 0;
+                /* md:mt-0 */
+            }
+        }
+
+
+        body {
+            background-color: var(--primary-bg);
+        }
+
+        #end {
+            text-decoration: none;
+            color: black;
+            border-radius: 20px;
+        }
+
+        /* fOOTER */
+        .main-footer {
+            background-color: black;
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            gap: 2.5rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid #1f2937;
+        }
+
+        .footer-logo-col {
+            grid-column: span 2 / span 2;
+            margin-left: 150px;
+        }
+
+        .footer-logo {
+            color: white;
+            font-size: 1.875rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-mission {
+            color: #6b7280;
+            /* text-gray-500 */
+            font-size: 0.875rem;
+            max-width: 28rem;
+        }
+
+        .footer-heading {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--cyan-400);
+            padding-left: 72px
+        }
+
+        .footer-links,
+        .footer-contact {
+            padding-left: 73px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: #9ca3af;
+            /* text-gray-400 */
+        }
+
+        .footer-contact li {
+            padding-left: 60px;
+        }
+
+        .footer-links a,
+        .footer-contact a {
+            text-decoration: none;
+            color: inherit;
+            padding-left: 73px;
+        }
+
+        .footer-links a:hover {
+            color: var(--cyan-400);
+        }
+
+        .copyright-bar {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            font-size: -0.780rem;
+            color: #4b5563;
+            align-items: center;
+            text-align: center;
+        }
+
+
+        .copyright-links {
+            margin-top: 1rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .copyright-links a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .copyright-links a:hover {
+            color: var(--cyan-400);
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: repeat(5, minmax(0, 1fr));
+            }
+
+            .copyright-bar {
+                flex-direction: row;
+            }
+
+            .copyright-links {
+                margin-top: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="cta-contact-section">
+        <div class="max-width-container">
+            <!-- 1. HEADER / NAVIGATION -->
+            <header class="main-header">
+                <div class="header-container max-width-container">
+                    <!-- Logo -->
+                    <div class="logo-text">
+                        Marine-<span class="logo-accent">Fleet</span>
+                    </div>
+
+                    <!-- Desktop Navigation -->
+                    <nav class="desktop-nav">
+                        <a href="index.html" class="transition">Home</a>
+                        <a href="#" class="transition">Fleet</a>
+                        <a href="about us.html" class="transition">About us</a>
+                        <a href="Contect Us.html" class="transition">Contact</a>
+                    </nav>
+
+                    <!-- CTA Button -->
+
+
+                    <button class="cta-button cta-button-header rounded-full shadow-lg">
+                        <a href="booking.html"> Book Now</a>
+
+                    </button>
+
+                    <!-- Mobile Menu Icon -->
+                    <button class="mobile-menu-icon" style="color: white;">
+                        &#9776; <!-- Hamburger Icon -->
+                    </button>
+                </div>
+            </header>
+            <div class="cta-contact-box">
+                <div class="cta-content-grid">
+
+                    <!-- Left Side: Plan & CTA -->
+                    <div class="cta-content">
+                        <h4>
+                            Contect us
+                        </h4>
+                        <h1>
+                            Get In Touch
+                        </h1>
+                        <div class="cta-text">
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque voluptatum dolor maiores?
+                                Modi aut accusantium pariatur necessitatibus a maxime harum </p>
+                            <br>
+                            <br>
+                        </div>
+                        <div class="cta-icon-div">
+
+                            <div class="cta-icon">
+                                <img src="Boats img/phone.icon.png" alt="">
+                                <p> :-3712-93719289</p>
+                            </div>
+                            <div class="cta-icon"><img src="Boats img/gmail.icon.png" alt="">
+                                <p> :-Marina-fleet@gmail.com</p>
+                            </div>
+                            <div class="cta-icon"><img src="Boats img/location.icon.png" alt="">
+                                <p> :-Aptech nn 2</p>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <!-- Right Side: Contact Form -->
+                    <div class="contact-form">
+                        <form class="form-fields">
+                            <input type="text" placeholder="Your Name" class="input-field" required>
+                            <input type="email" placeholder="Email Address" class="input-field" required>
+                            <input type="text" placeholder="Subject" class="input-field" required>
+                            <textarea placeholder="Your Message (Optional)" rows="4" class="input-field"></textarea>
+
+                            <button type="submit" class="cta-button form-submit-button rounded-lg shadow-xl">
+                                <b>Submit</b>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- footer  -->
+    <footer class="main-footer">
+        <div class="max-width-container">
+            <div class="footer-grid">
+                <!-- Col 1: Logo & Mission -->
+                <div class="footer-logo-col">
+                    <div class="footer-logo">
+                        Marina-<span class="logo-accent">Fleet</span>
+                    </div>
+                    <p class="footer-mission">
+                        We plan your personalized yachting experience, ensuring you explore the world's oceans in
+                        ultimate style and privacy.
+                    </p>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html" class="transition">Home</a></li>
+                        <li><a href="#" class="transition">Our Fleet</a></li>
+                        <li><a href="" class="transition">Contect Us</a></li>
+                        <li><a href="#" class="transition"></a>FAQ</li>
+                    </ul>
+                </div>
+
+
+                <!-- Col 4: Contact -->
+                <div>
+                    <h4 class="footer-heading">Contact</h4>
+                    <ul class="footer-contact">
+                        <li>3712-93719289</li>
+                        <li>info@voyago.com</li>
+                        <li>Marina Del Rey, CA</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright Bar -->
+            <div class="copyright-bar">
+                <p>&copy; 2025 Marina-Fleet. All Rights Reserved.</p>
+
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

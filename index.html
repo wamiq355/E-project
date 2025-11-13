@@ -140,18 +140,16 @@
 
         .desktop-nav {
             display: none;
-            /* hidden on mobile */
+            gap: 10px;
         }
 
         .desktop-nav a {
             color: white;
             text-decoration: none;
             font-size: -0.875rem;
-            /* text-sm */
             font-weight: 500;
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             margin-left: 2rem;
-            /* space-x-8 (split across elements) */
         }
 
         .desktop-nav a:hover {
@@ -237,8 +235,8 @@
             line-height: 1.1;
         }
 
-        
-       
+
+
 
         @media (min-width: 768px) {
             .hero-heading {
@@ -682,14 +680,14 @@
             font-weight: 700;
             margin-bottom: 3rem;
             color: #111827;
-            /* text-gray-900 */
         }
 
         .testimonial-grid {
             display: grid;
+            overflow-x: scroll;
             gap: 2rem;
         }
-
+        
         .testimonial-card {
             background-color: white;
             padding: 2rem;
@@ -697,59 +695,36 @@
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
             text-align: left;
             border: 1px solid #e5e7eb;
-            /* border-gray-200 */
         }
-
+       
         .testimonial-card .stars {
             color: #f59e0b;
-            /* text-yellow-500 */
+            text-align: center;
             font-size: 1.25rem;
             margin-bottom: 1rem;
         }
-
+        
         .testimonial-card .name {
+            text-align: center;
             color: #111827;
             font-weight: 600;
             margin-bottom: 0.5rem;
         }
-
+        
         .testimonial-card .quote {
+            text-align: center;
             color: #4b5563;
-            /* text-gray-600 */
             font-style: italic;
             font-size: 0.875rem;
             margin-bottom: 1rem;
         }
-
+        
         .testimonial-card .date {
             font-size: 0.75rem;
             color: #6b7280;
-            /* text-gray-500 */
         }
 
-        .pagination-dots {
-            display: flex;
-            justify-content: center;
-            margin-top: 2rem;
-            gap: 0.5rem;
-        }
 
-        .dot-active {
-            width: 2.5rem;
-            /* w-10 */
-            height: 0.25rem;
-            border-radius: 9999px;
-            background-color: var(--cyan-400);
-        }
-
-        .dot-inactive {
-            width: 0.5rem;
-            /* w-2 */
-            height: 0.25rem;
-            border-radius: 9999px;
-            background-color: #9ca3af;
-            /* bg-gray-400 */
-        }
 
         @media (min-width: 768px) {
             .testimonial-grid {
@@ -797,8 +772,15 @@
             font-size: 1.125rem;
             font-weight: 600;
             margin-bottom: 1rem;
+            margin-left: 58px;
             color: var(--cyan-400);
         }
+
+        .f1 {
+
+            margin-left: 4px;
+        }
+
 
         .footer-links,
         .footer-contact {
@@ -817,6 +799,7 @@
         .footer-contact a {
             text-decoration: none;
             color: inherit;
+            margin-left: 60px;
         }
 
         .footer-links a:hover {
@@ -826,13 +809,12 @@
         .copyright-bar {
             margin-top: 2rem;
             padding-top: 1rem;
-            display: flex;
+            text-align: center;
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
-            font-size: 0.75rem;
+            font-size: -0.75rem;
             color: #4b5563;
-            /* text-gray-600 */
         }
 
         .copyright-links {
@@ -878,17 +860,15 @@
 
             <!-- Desktop Navigation -->
             <nav class="desktop-nav">
-                <a href="#" class="transition">Home</a>
-                <a href="#" class="transition">Fleet</a>
-                <a href="#" class="transition">luxuary</a>
-                <a href="#" class="transition">fishing</a>
-                <a href="about us.html" class="transition">About us</a>
-                <a href="#" class="transition">Contact</a>
+                <a href="#" target="_blank" class="transition">Home</a>
+                <a href="#" target="_blank" class="transition">Fleet</a>
+                <a href="about us.html" target="_blank" class="transition">About us</a>
+                <a href="contect us.html" target="_blank" class="transition">Contact</a>
             </nav>
 
             <!-- CTA Button -->
             <button class="cta-button cta-button-header rounded-full ">
-                <a href="booking.html">
+                <a target="_blank" href="booking.html">
                     Book Now
                 </a>
             </button>
@@ -1181,11 +1161,13 @@
         <div class="max-width-container">
             <h2 class="text-4xl font-bold mb-12">What Our Clients Say</h2>
 
+
             <div class="testimonial-grid">
                 <!-- Testimonial Card 1 -->
                 <div class="testimonial-card hover-lift">
+                    <div class="testimonial-card-img"><img src="" alt=""></div>
                     <div class="stars">★★★★★</div>
-                    <p class="name">John Loise</p>
+                    <p class="name">Jhon wick</p>
                     <p class="quote">
                         "The yacht was stunning, and the crew's attention to every detail truly made this trip
                         spectacular."
@@ -1195,8 +1177,10 @@
 
                 <!-- Testimonial Card 2 -->
                 <div class="testimonial-card hover-lift">
+                    <div class="testimonial-card-img"><img src="" alt=""></div>
+
                     <div class="stars">★★★★★</div>
-                    <p class="name">Sofia Riley</p>
+                    <p class="name">Ronaldo</p>
                     <p class="quote">
                         "The sailboat was breathtaking, and the seamless service made our anniversary unforgettable.
                         Highly recommended!"
@@ -1206,8 +1190,46 @@
 
                 <!-- Testimonial Card 3 -->
                 <div class="testimonial-card hover-lift">
+                    <div class="testimonial-card-img"><img src="" alt=""></div>
+
                     <div class="stars">★★★★★</div>
-                    <p class="name">Christopher</p>
+                    <p class="name">Michel Jorden</p>
+                    <p class="quote">
+                        "The yacht was stunning, and the crew's attention to every detail truly made this trip
+                        spectacular. Amazing service!"
+                    </p>
+                    <p class="date">November, 2024</p>
+                </div>
+                <!-- Testimonial Card 4 -->
+                <div class="testimonial-card hover-lift">
+                    <div class="testimonial-card-img"><img src="" alt=""></div>
+
+                    <div class="stars">★★★★★</div>
+                    <p class="name">Sharukh Khan</p>
+                    <p class="quote">
+                        "The yacht was stunning, and the crew's attention to every detail truly made this trip
+                        spectacular. Amazing service!"
+                    </p>
+                    <p class="date">November, 2024</p>
+                </div>
+                <!-- Testimonial Card 5-->
+                <div class="testimonial-card hover-lift">
+                    <div class="testimonial-card-img"><img src="" alt=""></div>
+
+                    <div class="stars">★★★★★</div>
+                    <p class="name">Tom Cruise</p>
+                    <p class="quote">
+                        "The yacht was stunning, and the crew's attention to every detail truly made this trip
+                        spectacular. Amazing service!"
+                    </p>
+                    <p class="date">November, 2024</p>
+                </div>
+                <!-- Testimonial Card 6 -->
+                <div class="testimonial-card hover-lift">
+                    <div class="testimonial-card-img"><img src="" alt=""></div>
+
+                    <div class="stars">★★★★★</div>
+                    <p class="name">Walter White</p>
                     <p class="quote">
                         "The yacht was stunning, and the crew's attention to every detail truly made this trip
                         spectacular. Amazing service!"
@@ -1215,14 +1237,9 @@
                     <p class="date">November, 2024</p>
                 </div>
             </div>
-
-            <!-- Pagination Indicator -->
-            <div class="pagination-dots">
-                <div class="dot-active"></div>
-                <div class="dot-inactive"></div>
-                <div class="dot-inactive"></div>
-            </div>
         </div>
+
+
     </section>
 
     <!-- 8. CTA / CONTACT SECTION (Plan Your Yacht Experience Today) -->
@@ -1234,7 +1251,7 @@
                 <!-- Col 1: Logo & Mission -->
                 <div class="footer-logo-col">
                     <div class="footer-logo">
-                        VOYA-<span class="logo-accent">GO</span>
+                        Marina-<span class="logo-accent">Fleet</span>
                     </div>
                     <p class="footer-mission">
                         We plan your personalized yachting experience, ensuring you explore the world's oceans in
@@ -1248,27 +1265,16 @@
                     <ul class="footer-links">
                         <li><a href="#" class="transition">Home</a></li>
                         <li><a href="#" class="transition">Our Fleet</a></li>
-                        <li><a href="#" class="transition">Destinations</a></li>
-                        <li><a href="#" class="transition">Blog</a></li>
-                    </ul>
-                </div>
-
-                <!-- Col 3: Support -->
-                <div>
-                    <h4 class="footer-heading">Support</h4>
-                    <ul class="footer-links">
-                        <li><a href="#" class="transition">Contact Us</a></li>
+                        <li><a href="#" class="transition">ontect Us</a></li>
                         <li><a href="#" class="transition">FAQ</a></li>
-                        <li><a href="#" class="transition">Careers</a></li>
-                        <li><a href="#" class="transition">Terms & Conditions</a></li>
                     </ul>
                 </div>
 
                 <!-- Col 4: Contact -->
                 <div>
-                    <h4 class="footer-heading">Contact</h4>
+                    <h4 class="footer-heading f1">Contact</h4>
                     <ul class="footer-contact">
-                        <li>+1 (555) 123-4567</li>
+                        <li>3712-93719289</li>
                         <li>info@voyago.com</li>
                         <li>Marina Del Rey, CA</li>
                     </ul>
@@ -1277,11 +1283,7 @@
 
             <!-- Copyright Bar -->
             <div class="copyright-bar">
-                <p>&copy; 2025 VOYA-GO. All Rights Reserved.</p>
-                <div class="copyright-links">
-                    <a href="#" class="transition">Privacy Policy</a>
-                    <a href="#" class="transition">Cookies</a>
-                </div>
+                <p>&copy; 2025 MAeina-Fleet. All Rights Reserved.</p>
             </div>
         </div>
     </footer>

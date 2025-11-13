@@ -19,15 +19,18 @@
         --cyan-700: #0e7490;
         --cyan-400: #22d3ee;
         --gray-700: #374151;
+        --bg-dark: #0F172A;
+
     }
-    *{
+
+    * {
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     }
-    
+
 
     /* Body */
     body {
-        background-color: #111827;
+        background-color:var(--bg-dark);
     }
 
     /* navbar */
@@ -79,6 +82,8 @@
 
     .desktop-nav a:hover {
         color: var(--cyan-400);
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+        transform: translateY(-3px);
     }
 
     .cta-button a {
@@ -93,7 +98,7 @@
         display: none;
         background-color: var(--accent-blue);
         border-radius: 20px;
-        margin-right:80px ;
+        margin-right: 80px;
     }
 
     .mobile-menu-icon {
@@ -241,7 +246,8 @@
             font-size: 3rem;
             /* md:text-5xl */
         }
-        .ctn-content img{
+
+        .ctn-content img {
             width: 200px;
             height: 200px;
         }
@@ -253,112 +259,112 @@
     }
 
     /* --- 9. FOOTER --- */
-   .main-footer {
-            background-color: black;
-            padding-top: 4rem;
-            
-            padding-bottom: 4rem;
-        }
+    .main-footer {
+        background-color: black;
+        padding-top: 4rem;
 
+        padding-bottom: 4rem;
+    }
+
+    .footer-grid {
+        display: grid;
+        gap: 2.5rem;
+        /* gap-10 */
+        padding-bottom: 2.5rem;
+        border-bottom: 1px solid #1f2937;
+        /* border-gray-800 */
+    }
+
+    .footer-logo-col {
+        grid-column: span 2 / span 2;
+        margin-left: 150px;
+        color: white;
+    }
+
+    .footer-logo {
+        font-size: 1.875rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+
+    .footer-mission {
+        color: #6b7280;
+        /* text-gray-500 */
+        font-size: 0.875rem;
+        max-width: 28rem;
+    }
+
+    .footer-heading {
+        font-size: 1.125rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: var(--cyan-400);
+        padding-left: 150px;
+    }
+
+    .footer-links,
+    .footer-contact {
+        list-style: none;
+        padding-left: 150px;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        font-size: 0.875rem;
+        color: #9ca3af;
+
+    }
+
+    .footer-links a,
+    .footer-contact a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .footer-links a:hover {
+        color: var(--cyan-400);
+    }
+
+    .copyright-bar {
+        text-align: center;
+        margin-top: 2rem;
+        padding-top: 1rem;
+        /* display: flex; */
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        font-size: -0.75rem;
+        color: #4b5563;
+    }
+
+    .copyright-links {
+        margin-top: 1rem;
+        display: flex;
+        gap: 1rem;
+    }
+
+    .copyright-links a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .copyright-links a:hover {
+        color: var(--cyan-400);
+    }
+
+    @media (min-width: 768px) {
         .footer-grid {
-            display: grid;
-            gap: 2.5rem;
-            /* gap-10 */
-            padding-bottom: 2.5rem;
-            border-bottom: 1px solid #1f2937;
-            /* border-gray-800 */
-        }
-
-        .footer-logo-col {
-            grid-column: span 2 / span 2;
-            margin-left: 150px;
-            color: white;
-        }
-
-        .footer-logo {
-            font-size: 1.875rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .footer-mission {
-            color: #6b7280;
-            /* text-gray-500 */
-            font-size: 0.875rem;
-            max-width: 28rem;
-        }
-
-        .footer-heading {
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--cyan-400);
-            padding-left: 150px;
-        }
-
-        .footer-links,
-        .footer-contact {
-            list-style: none;
-            padding-left: 150px;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            font-size: 0.875rem;
-            color: #9ca3af;
-
-        }
-
-        .footer-links a,
-        .footer-contact a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .footer-links a:hover {
-            color: var(--cyan-400);
+            grid-template-columns: repeat(5, minmax(0, 1fr));
         }
 
         .copyright-bar {
-            text-align: center;
-            margin-top: 2rem;
-            padding-top: 1rem;
-            /* display: flex; */
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            font-size: -0.75rem;
-            color: #4b5563;
+            flex-direction: row;
         }
 
         .copyright-links {
-            margin-top: 1rem;
-            display: flex;
-            gap: 1rem;
+            margin-top: 0;
         }
-
-        .copyright-links a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .copyright-links a:hover {
-            color: var(--cyan-400);
-        }
-
-        @media (min-width: 768px) {
-            .footer-grid {
-                grid-template-columns: repeat(5, minmax(0, 1fr));
-            }
-
-            .copyright-bar {
-                flex-direction: row;
-            }
-
-            .copyright-links {
-                margin-top: 0;
-            }
-        }
+    }
 
 
     /* --- RESPONSIVENESS (Media Queries) --- */
@@ -434,19 +440,17 @@
 
             <!-- Desktop Navigation -->
             <nav class="desktop-nav">
-                <a href="INDEX.HTML" class="transition">Home</a>
-                <a href="#" class="transition">Fleet</a>
-                <a href="#" class="transition">luxuary</a>
-                <a href="#" class="transition">fishing</a>
-                <a href="#" class="transition">About us</a>
-                <a href="#" class="transition">Contact</a>
+                <a href="index.html" target="_blank" class="transition">Home</a>
+                <a href="#" target="_blank" class="transition">Fleet</a>
+                <a href="about us.html" target="_blank" class="transition">About us</a>
+                <a href="contect us.html" target="_blank" class="transition">Contact</a>
             </nav>
 
             <!-- CTA Button -->
 
 
             <button class="cta-button cta-button-header rounded-full shadow-lg">
-                <a href="booking.html"> Book Now</a>
+                <a target="_blank" href="booking.html"> Book Now</a>
 
             </button>
 
@@ -486,14 +490,14 @@
                             <input type="number" name="" placeholder="Phone" class="input-field">
                             <input type="number" placeholder="Number of Guests" class="input-field">
                             <label id="contact-form-label" for="">Date of Arrive <input type="date"
-                                        class="input-field input-date" required></label>
+                                    class="input-field input-date" required></label>
                             <select name="" class="input-field input-date">
                                 <option value="">select your fiels</option>
                                 <option value="">fleet</option>
                                 <option value="">luxuary</option>
                                 <option value="">sailing</option>
                             </select>
-                            
+
                             <div class="form-row">
                                 <label id="contact-form-label" for="">Start time <input type="time"
                                         class="input-field input-date" required></label>
@@ -574,7 +578,7 @@
             <!-- Copyright Bar -->
             <div class="copyright-bar">
                 <p>&copy; 2025 VOYA-GO. All Rights Reserved.</p>
-                
+
             </div>
         </div>
     </footer>

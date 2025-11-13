@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+            --primary-bg: #030712;
+            --secondary-bg: #F4F6F8;
+            --fleet-card-light: #E0F7FA;
+            --accent-blue: #38bdf8;
+            --dark-gray-bg: #111827;
+            --text-dark: #1f2937;
+            --text-light: white;
+            --cyan-600: #0891b2;
+            --cyan-700: #0e7490;
+            --cyan-400: #22d3ee;
+            --gray-700: #374151;
+            --bg-dark: #0F172A;
+        }
+
+        * {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: var(--text-light); /* Set default text color to light/white */
+        }
+
+        body {
+            background-color: #1f2937;
+        }
+
+        /* --- NAVBAR --- */
+
+        .main-header {
+            backdrop-filter: blur(5px);
+            background-color: #111827b4;
+            border-radius: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10;
+            padding: 1rem;
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-text {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            padding-left: 80px;
+        }
+
+        .logo-accent {
+            color: var(--cyan-400);
+        }
+
+        .desktop-nav {
+            display: none;
+        }
+
+        .desktop-nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-left: 2rem;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .desktop-nav a:hover {
+            color: var(--cyan-400);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+            transform: translateY(-3px);
+        }
+
+        .cta-button a {
+            color: black;
+            text-decoration: none;
+        }
+
+        .cta-button-header {
+            padding: 0.5rem 1.5rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: none;
+            background-color: var(--accent-blue);
+            border-radius: 20px;
+            margin-right: 80px;
+        }
+
+        .mobile-menu-icon {
+            font-size: 1.5rem;
+        }
+
+        /* Medium screens (md: breakpoint equivalent - 768px) */
+        @media (min-width: 768px) {
+            .main-header {
+                padding: 2rem;
+            }
+
+            .desktop-nav {
+                display: flex;
+            }
+
+            .cta-button-header {
+                display: block;
+            }
+
+            .mobile-menu-icon {
+                display: none;
+            }
+        }
+
+        /* --- FAQ-SECTION --- */
+        .faq-box {
+            background: var(--dark-gray-bg);
+            border: 2px solid black;
+            border-radius: 10px;
+            /* width: 100vw; - Changed to max-width for better control */
+            max-width: 900px;
+            margin: 160px auto 40px auto; /* Centered with top margin */
+            min-height: 400px;
+            padding: 20px;
+        }
+
+        .faq {
+            padding: 10px 12px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .faq h1 {
+            font-weight: 500;
+            font-size: 50px;
+            color: var(--cyan-400); /* Highlight the main heading */
+        }
+
+        .accordian {
+            margin: 60px auto;
+            width: 100%;
+            padding: 5px;
+        }
+        
+        /* New Styles for <details>/<summary> structure */
+
+        /* Target the details container */
+        .accordian details {
+            list-style: none;
+            margin-bottom: 8px; /* Increased margin for visual separation */
+            background: var(--cyan-700);
+            border-radius: 5px; /* Added slight rounding */
+            overflow: hidden; /* Ensures answer content stays within bounds */
+        }
+
+        /* Style the summary (the clickable question) */
+        .accordian summary {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+            position: relative;
+            background: var(--cyan-600); /* Slightly different color for the question bar */
+        }
+
+        /* Remove the default arrow/triangle */
+        .accordian summary::marker,
+        .accordian summary::-webkit-details-marker {
+            display: none;
+            content: "";
+        }
+
+        /* Create the custom plus/minus icon */
+        .accordian summary::after {
+            content: '+';
+            font-size: 34px;
+            position: absolute;
+            right: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        /* Change the '+' to a '-' when the details is open */
+        .accordian details[open] summary::after {
+            content: '–'; 
+            transform: rotate(0deg);
+            font-size: 34px;
+        }
+
+        /* Style the answer content */
+        .accordian .answer {
+            text-align: left;
+            padding: 0 20px 20px 20px; /* Padding for the answer content */
+            background: var(--cyan-700);
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        
+        .accordian .answer p {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="header-container max-width-container">
+            <div class="logo-text">
+                Marine-<span class="logo-accent">Fleet</span>
+            </div>
+
+            <nav class="desktop-nav">
+                <a href="index.html" class="transition">Home</a>
+                <a href="#" class="transition">Fleet</a>
+                <a href="about us.html" class="transition">About us</a>
+                <a href="Contect Us.html" class="transition">Contact</a>
+            </nav>
+
+            <button class="cta-button cta-button-header rounded-full shadow-lg">
+                <a href="booking.html"> Book Now</a>
+            </button>
+
+            <button class="mobile-menu-icon" style="color: white;">
+                &#9776; </button>
+        </div>
+    </header>
+
+    <div class="faq-box">
+        <div class="faq">
+
+            <h1>Frequently Asked Question</h1>
+            <div class="accordian">
+                <h3>I. Booking & Payment 💳</h3>
+                
+                <details>
+                    <summary>How far in advance should I book my yacht charter?</summary>
+                    <div class="answer">
+                        <p>We strongly recommend booking **3 to 6 months in advance,** especially for peak
+                            seasons (summer) and major holidays, to ensure the widest selection of yachts and your
+                            preferred dates.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>What is included in the base charter price?</summary>
+                    <div class="answer">
+                        <p>The base price typically includes the rental of the yacht, the professional crew (Captain,
+                            Chef), standard water sports equipment, and linens/towels.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>What is the *Advance Provisioning Allowance (APA)*?</summary>
+                    <div class="answer">
+                        <p>The APA is a standard sum (usually **25%–35% of the base charter fee)** paid in
+                            advance for variable operating expenses, such as fuel, food, beverages, and dockage fees. It
+                            is managed by the Captain and reconciled at the end of the trip.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
