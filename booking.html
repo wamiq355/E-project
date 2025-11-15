@@ -30,7 +30,7 @@
 
     /* Body */
     body {
-        background-color:var(--bg-dark);
+        background-color: var(--bg-dark);
     }
 
     /* navbar */
@@ -444,6 +444,8 @@
                 <a href="#" target="_blank" class="transition">Fleet</a>
                 <a href="about us.html" target="_blank" class="transition">About us</a>
                 <a href="contect us.html" target="_blank" class="transition">Contact</a>
+                <a href="FAQ.html" target="_blank" class="transition">FAQ</a>
+
             </nav>
 
             <!-- CTA Button -->
@@ -508,9 +510,10 @@
                             <textarea placeholder="Your Message / Requirements" rows="4" class="input-field"></textarea>
 
                             <label id="contact-form-label" for="payment">Select Payment Method:</label>
-                            <select class="input-field input-date" id="payment" name="payment" required>
+                            <select id="paymentMethod" class="input-field input-date" id="payment" name="payment"
+                                required>
                                 <option value="">-- Choose a payment method --</option>
-                                <option value="credit">Credit/Debit Card</option>
+                                <option value="card">Card Transfer</a></option>
                                 <option value="bank">Bank Transfer</option>
                                 <option value="cash">Cash on Arrival</option>
                             </select>
@@ -549,7 +552,7 @@
                         <li><a href="index.html" class="transition">Home</a></li>
                         <li><a href="#" class="transition">Our Fleet</a></li>
                         <li><a href="" class="transition">Contect Us</a></li>
-                        <li><a href="#" class="transition"></a>FAQ</li>
+                        <li><a href="FAQ.html" class="transition">FAQ</a></li>
                     </ul>
                 </div>
 
@@ -582,6 +585,20 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        document.getElementById("paymentMethod").addEventListener("change", function () {
+            let value = this.value;
+
+            if (value === "bank") {
+                window.location.href = "bank-transfer.html";  // → opens bank page
+            }
+            else if (value === "card") {
+                window.location.href = "card-transfer.html";  // → opens card page
+            }
+        });
+    </script>
+
 </body>
 
 </html>

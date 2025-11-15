@@ -553,120 +553,7 @@
             }
         }
 
-        /* --- 6. FEATURED EXPERIENCES LIST --- */
-        .experiences-section {
-            padding-top: 4rem;
-            padding-bottom: 6rem;
-            background-color: #1f2937;
-        }
-
-        .experiences-section h2 {
-            font-size: 2.25rem;
-            font-weight: 700;
-            margin-bottom: 3rem;
-            text-align: center;
-        }
-
-        .experience-list {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .experience-item {
-            padding-top: 2rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .experience-item:last-child {
-            border-bottom: none;
-        }
-
-        .experience-image-container {
-            margin-bottom: 1.5rem;
-            /* mb-6 */
-        }
-
-        .experience-image-container img {
-            width: 100%;
-            height: auto;
-            border-radius: 0.75rem;
-        }
-
-        .experience-number {
-            color: var(--cyan-400);
-            font-size: 1.875rem;
-            /* text-3xl */
-            font-weight: 800;
-            margin-bottom: 0.25rem;
-            display: block;
-        }
-
-        .experience-item h3 {
-            font-size: 1.5rem;
-            /* text-2xl */
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .experience-item p {
-            color: #9ca3af;
-            /* text-gray-400 */
-            margin-bottom: 1.5rem;
-        }
-
-        .experience-button {
-            background-color: transparent;
-            border: 1px solid #9ca3af;
-            color: #9ca3af;
-            padding: 0.5rem 1.5rem;
-            border-radius: 9999px;
-            font-size: 0.875rem;
-            font-weight: 600;
-        }
-
-        .experience-button:hover {
-            background-color: var(--gray-700);
-            color: white;
-            border-color: white;
-        }
-
-        @media (min-width: 768px) {
-            .experience-item-grid {
-                display: grid;
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-                gap: 3rem;
-                /* gap-12 */
-                align-items: center;
-            }
-
-            .exp-col-2 {
-                grid-column: span 2 / span 2;
-            }
-
-            .exp-col-1 {
-                grid-column: span 1 / span 1;
-            }
-
-            /* Alternating order using CSS grid order property */
-            .experience-item-grid:nth-child(even) .exp-col-2 {
-                order: 1;
-            }
-
-            .experience-item-grid:nth-child(even) .exp-col-1 {
-                order: 2;
-            }
-
-            .experience-image-container {
-                margin-bottom: 0;
-            }
-
-            .experience-number {
-                font-size: 3rem;
-                /* md:text-5xl */
-            }
-        }
+       
 
         /* --- 7. CLIENT TESTIMONIALS SECTION (Light Background) --- */
         .testimonials-section {
@@ -864,6 +751,8 @@
                 <a href="#" target="_blank" class="transition">Fleet</a>
                 <a href="about us.html" target="_blank" class="transition">About us</a>
                 <a href="contect us.html" target="_blank" class="transition">Contact</a>
+                <a href="FAQ.html" target="_blank" class="transition">FAQ</a>
+
             </nav>
 
             <!-- CTA Button -->
@@ -907,7 +796,7 @@
                         The Difference is in the Details: Your Perfect Sea Escape
                     </h2>
                     <img class="rounded-xl shadow-2xl hover-lift"
-                        src="https://placehold.co/600x400/0ea5e9/ffffff?text=Yacht+Sailing+at+Sunset"
+                        src="Boats img/img1.jpeg"
                         alt="Yacht sailing at sunset">
                 </div>
 
@@ -984,7 +873,7 @@
                         <!-- Image -->
                         <div class="yacht-image-col">
                             <img class="rounded-lg shadow-xl"
-                                src="https://placehold.co/300x200/22d3ee/030712?text=Yacht+A"
+                                src="Boats img/img2.jpeg"
                                 alt="The Serenity Wave Yacht">
                         </div>
                     </div>
@@ -1014,7 +903,7 @@
                         <!-- Image -->
                         <div class="yacht-image-col">
                             <img class="rounded-lg shadow-xl"
-                                src="https://placehold.co/300x200/22d3ee/030712?text=Yacht+B"
+                                src="Boats img/img4.jpg"
                                 alt="The Ocean's Embrace Yacht">
                         </div>
                     </div>
@@ -1054,107 +943,7 @@
         </div>
     </section>
 
-    <!-- 6. FEATURED EXPERIENCES LIST (Dark Background with Structured Items) -->
-    <section class="experiences-section">
-        <div class="max-width-container">
-            <h2>Experiences We Offer</h2>
-
-            <div class="experience-list">
-
-                <!-- Experience 1: Sunset Cruises -->
-                <div class="experience-item experience-item-grid">
-                    <!-- Content (md: order 1) -->
-                    <div class="exp-col-2">
-                        <span class="experience-number">01</span>
-                        <h3>Sunset Cruises</h3>
-                        <p>
-                            There’s nothing quite like watching the sun melt into the ocean. Settle back and relax as
-                            your personal captain guides you to the best vantage point for a truly spectacular show of
-                            gold and crimson.
-                        </p>
-                        <button class="experience-button transition">
-                            View Options
-                        </button>
-                    </div>
-                    <!-- Image (md: order 2) -->
-                    <div class="exp-col-1 experience-image-container">
-                        <img class="rounded-xl shadow-xl hover-lift"
-                            src="https://placehold.co/400x250/374151/f3f4f6?text=Sunset+Cruise"
-                            alt="Sunset cruise on a yacht">
-                    </div>
-                </div>
-
-                <!-- Experience 2: Private Events -->
-                <div class="experience-item experience-item-grid">
-                    <!-- Image (md: order 1) -->
-                    <div class="exp-col-1 experience-image-container">
-                        <img class="rounded-xl shadow-xl hover-lift"
-                            src="https://placehold.co/400x250/374151/f3f4f6?text=Private+Event"
-                            alt="Formal event on a yacht deck">
-                    </div>
-                    <!-- Content (md: order 2) -->
-                    <div class="exp-col-2">
-                        <span class="experience-number">02</span>
-                        <h3>Private Events</h3>
-                        <p>
-                            Mark life’s milestones—from anniversaries to corporate achievements—on the water. We handle
-                            every detail of catering and planning, guaranteeing a flawless, memorable, and stunning
-                            gathering.
-                        </p>
-                        <button class="experience-button transition">
-                            View Packages
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Experience 3: Corporate Retreats -->
-                <div class="experience-item experience-item-grid">
-                    <!-- Content (md: order 1) -->
-                    <div class="exp-col-2">
-                        <span class="experience-number">03</span>
-                        <h3>Corporate Retreats</h3>
-                        <p>
-                            Ditch the boardroom for the open sea. Inspire new thinking and strengthen team bonds in a
-                            refreshing, luxurious setting far from the office. All necessary presentation and A/V
-                            equipment is included.
-                        </p>
-                        <button class="experience-button transition">
-                            Get Quote
-                        </button>
-                    </div>
-                    <!-- Image (md: order 2) -->
-                    <div class="exp-col-1 experience-image-container">
-                        <img class="rounded-xl shadow-xl hover-lift"
-                            src="https://placehold.co/400x250/374151/f3f4f6?text=Corporate+Team"
-                            alt="Business meeting on a yacht">
-                    </div>
-                </div>
-
-                <!-- Experience 4: Island Hopping -->
-                <div class="experience-item-grid">
-                    <!-- Image (md: order 1) -->
-                    <div class="exp-col-1 experience-image-container">
-                        <img class="rounded-xl shadow-xl hover-lift"
-                            src="https://placehold.co/400x250/374151/f3f4f6?text=Island+Hopping"
-                            alt="Yacht anchored near a tropical island">
-                    </div>
-                    <!-- Content (md: order 2) -->
-                    <div class="exp-col-2">
-                        <span class="experience-number">04</span>
-                        <h3>Island Hopping</h3>
-                        <p>
-                            Discover the hidden corners of the world, whether in the Mediterranean or the Caribbean. Our
-                            seasoned captains know every secluded beach and perfect spot for snorkeling or simply
-                            relaxing.
-                        </p>
-                        <button class="experience-button transition">
-                            Book Adventure
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  
 
     <!-- 7. CLIENT TESTIMONIALS SECTION (Light Background, White Cards) -->
     <section class="testimonials-section section-separator">
@@ -1266,7 +1055,7 @@
                         <li><a href="#" class="transition">Home</a></li>
                         <li><a href="#" class="transition">Our Fleet</a></li>
                         <li><a href="#" class="transition">ontect Us</a></li>
-                        <li><a href="#" class="transition">FAQ</a></li>
+                        <li><a href="FAQ.html" class="transition">FAQ</a></li>
                     </ul>
                 </div>
 

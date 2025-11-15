@@ -125,7 +125,7 @@
         }
 
         .cta-contact-box {
-            margin-top: 150px;
+            margin-top: 100px;
             background-color: var(--dark-gray-bg);
             padding: 1rem;
             border-radius: 0.75rem;
@@ -133,8 +133,8 @@
             padding: 50px;
         }
 
-        
-        
+
+
 
 
         .cta-content h1 {
@@ -172,18 +172,38 @@
             width: 40px;
         }
 
+        .contact-form-box {}
 
         .contact-form {
-            margin-right: 30%;
+            border: 2px solid var(--text-dark);
+            border-radius: 30px;
+            padding: 50px;
+            position: relative;
+            left: 400px;
+            transition: all 1s ease 1ms;
 
         }
 
-        .contact-form h4 {
-            color: var(--accent-blue);
-            font-size: 1.875rem;
+        .contact-form:hover {
+            border-color: var(--cyan-600);
+        }
+
+        .contact-form-box h4 {
+            color: var(--fleet-card-light);
+            position: relative;
+            left: 400px;
             text-align: center;
-            font-size: 4rem;
-            margin: 2rem;
+            font-size: 3rem;
+            margin: 1rem;
+        }
+
+        .contact-form h3 {
+            color: var(--accent-blue);
+            position: relative;
+            top: -20px;
+            text-align: center;
+            font-size: 3rem;
+            margin: 1rem;
         }
 
         .form-fields {
@@ -192,14 +212,19 @@
             gap: 2rem;
         }
 
+        .form-fields label {
+            color: var(--cyan-400);
+            margin: -10px;
+            font-size: 1.2rem;
+
+        }
+
         .input-field {
             width: 100%;
             padding: 0.75rem;
             border-radius: 0.5rem;
             background-color: #1f2937;
-            /* bg-gray-800 */
             border: 1px solid #374151;
-            /* border-gray-700 */
             color: white;
             align-items: center;
             display: flex;
@@ -399,7 +424,7 @@
                         <a href="#" class="transition">Fleet</a>
                         <a href="about us.html" class="transition">About us</a>
                         <a href="Contect Us.html" class="transition">Contact</a>
-                <a href="FAQ.html" target="_blank" class="transition">FAQ</a>
+                        <a href="FAQ.html" target="_blank" class="transition">FAQ</a>
 
                     </nav>
 
@@ -421,7 +446,7 @@
                 <div class="cta-content-grid">
 
                     <!-- Left Side: Plan & CTA -->
-                    <div class="cta-content">
+                    <!-- <div class="cta-content">
                         
                         <h1>
                             Get In Touch
@@ -447,24 +472,49 @@
                         </div>
 
 
-                    </div>
+                    </div> -->
 
                     <!-- Right Side: Contact Form -->
-                    <div class="contact-form">
-                        <h4>
-                            Contect us
-                        </h4>
-                        <form class="form-fields">
-                            <input type="text" placeholder="Your Name" class="input-field" required>
-                            <input type="email" placeholder="Email Address" class="input-field" required>
-                            <input type="text" placeholder="Subject" class="input-field" required>
-                            <textarea placeholder="Your Message (Optional)" rows="4" class="input-field"></textarea>
+                    <div class="contact-form-box">
 
-                            <button type="submit" class="cta-button form-submit-button rounded-lg shadow-xl">
-                                <b>Submit</b>
-                            </button>
-                        </form>
+                        <h4>
+                            BANK CASH TRANSFER
+                        </h4>
+                        <div class="contact-form">
+                            <h3>
+                                User Details
+                            </h3>
+                            <form class="form-fields">
+                                <label for="">1.
+                                    1. Full Name</label>
+                                <input type="text" placeholder="Your Name" class="input-field" required>
+                                <label for="">
+                                    2. E-mail Address</label>
+                                <input type="email" placeholder="xyz@gmial.com" class="input-field" maxlength="16">
+                                <label for="">
+                                    3. Phone Nunmber</label>
+                                <input type="number" placeholder="Your Number" class="input-field" maxlength="5">
+                                
+                                <h3>Payment Details</h3>
+                                <label for="">
+                                    4. Amount Paid</label>
+                                <input type="number" class="input-field" placeholder="Amount">
+                                <label for="">
+                                    5. Transaction ID (From Bank Receipt)</label>
+                                <input type="text" placeholder="Transaction ID (From Bank Receipt)" class="input-field" maxlength="3">
+                                <label for="">
+                                    6. Upload Payment Screenshot</label>
+                                <input type="file" class="input-field" accept="image/*">
+
+
+                                <button type="submit" class="cta-button form-submit-button rounded-lg shadow-xl">
+                                    <b>Submit</b>
+
+                                </button>
+                            </form>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>
