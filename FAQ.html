@@ -215,7 +215,36 @@
             padding: 0;
             margin: 0;
         }
+        @media (min-width: 390px) {
+             .faq-box {
+                max-width: 95%; 
+                padding: 30px;
+                margin: 160px auto 40px auto;
 
+            }.faq h1 {
+                font-size: 30px;
+            }
+
+            .accordian summary {
+                padding: 30px;
+                font-size: 18px;
+            }
+
+            .accordian summary::after {
+                font-size: 34px;
+                right: 20px;
+            }
+
+            .accordian details[open] summary::after {
+                font-size: 34px;
+            }
+
+            .accordian .answer {
+                padding: 0 20px 20px 20px;
+                font-size: 16px;
+            }
+            
+        }
         /* fOOTER */
         .main-footer {
             background-color: black;
@@ -313,7 +342,7 @@
             color: var(--cyan-400);
         }
 
-        @media (min-width: 768px) {
+        @media (min-width: 390px) {
             .footer-grid {
                 grid-template-columns: repeat(5, minmax(0, 1fr));
             }
@@ -325,6 +354,12 @@
             .copyright-links {
                 margin-top: 0;
             }
+
+            /* Faq  */
+            
+            
+            
+            
         }
     </style>
 </head>
@@ -474,8 +509,8 @@
             </div>
         </div>
     </div>
-        <!-- footer  -->
-             <!-- footer  -->
+    <!-- footer  -->
+    <!-- footer  -->
     <footer class="main-footer">
         <div class="max-width-container">
             <div class="footer-grid">
@@ -521,7 +556,7 @@
         </div>
     </footer>
 
-         
+
 
 </body>
 

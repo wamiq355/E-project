@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yacht Fleet</title>
+  <style>
+    :root {
+      --primary-bg: #030712;
+      --secondary-bg: #f4f6f8;
+      --fleet-card-light: #e0f7fa;
+      --accent-blue: #38bdf8;
+      --dark-gray-bg: #111827;
+      --text-dark: #1f2937;
+      --text-light: white;
+      --cyan-600: #0891b2;
+      --cyan-700: #0e7490;
+      --cyan-400: #22d3ee;
+      --gray-700: #374151;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background-color: var(--text-dark);
+      color: #fff;
+    }
+
+    /* navbar */
+
+    .main-header {
+      backdrop-filter: blur(5px);
+      background-color: #111827b4;
+      border-radius: 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      padding: 1rem;
+      /* p-4 */
+    }
+
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo-text {
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 700;
+      padding-left: 80px;
+    }
+
+    .logo-accent {
+      color: var(--cyan-400);
+    }
+
+    .desktop-nav {
+      display: none;
+      /* hidden on mobile */
+    }
+
+    .desktop-nav a {
+      color: white;
+      text-decoration: none;
+      font-size: -0.875rem;
+      font-weight: 500;
+      margin-left: 2rem;
+      font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    }
+
+    .desktop-nav a:hover {
+      color: var(--cyan-400);
+    }
+
+    .cta-button a {
+      color: black;
+      text-decoration: none;
+    }
+
+    .cta-button-header {
+      padding: 0.5rem 1.5rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      display: none;
+      background-color: var(--accent-blue);
+      border-radius: 20px;
+      margin-right: 80px;
+    }
+
+    .mobile-menu-icon {
+      font-size: 1.5rem;
+    }
+
+    /* Medium screens (md: breakpoint equivalent - 768px) */
+    @media (min-width: 768px) {
+      .main-header {
+        padding: 2rem;
+        /* md:p-8 */
+      }
+
+      .desktop-nav {
+        display: flex;
+      }
+
+      .cta-button-header {
+        display: block;
+      }
+
+      .mobile-menu-icon {
+        display: none;
+      }
+    }
+
+    .fleet-section {
+      padding: 60px 5%;
+      text-align: center;
+
+
+    }
+
+    .fleet-header {
+
+
+      background-color: var(--cyan-600);
+      border: 1px solid #444;
+      padding: 60px 25px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.25);
+      margin-bottom: 60px;
+      transition: all 0.4s ease;
+      background-image: url("Boats img/B.G pic 1.png");
+      background-position: center;
+      background-size: cover;
+
+    }
+
+    .fleet-header:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 40px rgba(255, 215, 0, 0.4);
+    }
+
+    .fleet-header h1 {
+      font-size: 2.8rem;
+      color: white;
+      margin-bottom: 15px;
+    }
+
+    .fleet-header p {
+      color: #ccc;
+      font-size: 1rem;
+      max-width: 750px;
+      margin: 0 auto 15px auto;
+      line-height: 1.6;
+    }
+
+    .fleet-header .details {
+      color: #bbb;
+      font-size: 0.95rem;
+      margin-top: 10px;
+    }
+
+    .fishing {
+      background-image: url("Boats img/B.G pic 2.2.jpg");
+
+      background-position: center;
+      background-size: cover;
+      background-repeat: none;
+
+    }
+
+    .selling {
+      background-image: url("Boats img/B.G pic 3.3.jpg");
+      background-position: center;
+      background-repeat: none;
+      background-size: cover;
+      /* height: 700px; */
+    }
+
+    .fleet-grid {
+      display: grid;
+
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .fleet-card {
+      background-color: var(--cyan-600);
+      border-radius: 15px;
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.25);
+      overflow: hidden;
+      border: 1px solid #333;
+      transition: all 0.3s ease;
+
+    }
+
+    .fleet-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.3);
+    }
+
+    .fleet-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .fleet-card-content {
+      padding: 20px;
+    }
+
+    .fleet-card-content h3 {
+      color: white;
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+    }
+
+    .fleet-card-content p {
+      color: var(--gray-700);
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+      font-weight: bolder;
+    }
+
+    .fleet-card-content .price {
+      color: #fff;
+      font-weight: 600;
+      margin-top: 5px;
+    }
+
+    .fleet {
+      border: 2px solid black;
+      background-color: var(--dark-gray-bg);
+      margin: 50px;
+      border-radius: 20px;
+      margin-top: 180px;
+    }
+
+    /* view-detail-box  */
+    .view-detail-box {
+      height: 100vh;
+      width: 90vw;
+      position: fixed;
+      top: 50px;
+      left: 70px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .view-detail:hover {
+      box-shadow: 0 0 25px var(--accent-blue);
+      border-color: var(--accent-blue);
+    }
+
+    .view-detail {
+      height: 550px;
+      width: 500px;
+      border: 2.5px solid var(--text-dark);
+      background-color: var(--dark-gray-bg);
+      border-radius: 40px;
+      transition: all 1s ease;
+    }
+
+    .view-detail h3 {
+      text-align: center;
+    }
+
+    #closebtn {
+      float: right;
+      background-color: var(--dark-gray-bg);
+      border: none;
+      margin-top: 5px;
+      margin-right: 20px;
+    }
+
+    #closebtn h2 {
+      color: var(--fleet-card-light);
+    }
+
+    #view-detail-name {
+      text-align: center;
+    }
+
+    #view-detail-img {
+      margin: auto 10px auto 50px;
+      border-radius: 20px;
+      width: 400px;
+      height: 200px;
+
+    }
+
+    @media (max-width: 768px) {
+      .fleet-header h1 {
+        font-size: 2rem;
+      }
+    }
+
+    /* --- 9. FOOTER --- */
+    .main-footer {
+      background-color: black;
+      padding-top: 4rem;
+
+      padding-bottom: 4rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      gap: 2.5rem;
+      /* gap-10 */
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid #1f2937;
+      /* border-gray-800 */
+    }
+
+    .footer-logo-col {
+      grid-column: span 2 / span 2;
+      margin-left: 150px;
+      color: white;
+    }
+
+    .yacht-details {
+      grid-template-columns: repeat(2, 2fr);
+      display: grid;
+      gap: 0.1rem;
+      font-size: 0.875rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .yacht-details-box {
+      display: none;
+    }
+
+
+    .footer-logo {
+      font-size: 1.875rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .footer-mission {
+      color: #6b7280;
+      /* text-gray-500 */
+      font-size: 0.875rem;
+      max-width: 28rem;
+    }
+
+    .footer-heading {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--cyan-400);
+      padding-left: 73px;
+    }
+
+    .footer-links,
+    .footer-contact {
+      list-style: none;
+      padding-left: 74px;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: #9ca3af;
+    }
+
+    .footer-links a,
+    .footer-contact a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .footer-links a:hover {
+      color: var(--cyan-400);
+    }
+
+    .copyright-bar {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      /* display: flex; */
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      font-size: -0.75rem;
+      color: #4b5563;
+    }
+
+    .copyright-links {
+      margin-top: 1rem;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .copyright-links a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .copyright-links a:hover {
+      color: var(--cyan-400);
+    }
+
+    @media (min-width: 768px) {
+      .footer-grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
+
+      .copyright-bar {
+        flex-direction: row;
+      }
+
+      .copyright-links {
+        margin-top: 0;
+      }
+    }
+
+    .btn {
+      margin: 20px;
+    }
+
+    .btn>a {
+      background: #38bdf8;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+      text-decoration: none;
+
+    }
+
+    /* .fleet-card{
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        gap: 10px;
+        
+      } */
+
+    .btn>a:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+      background: linear-gradient(135deg, #ff6a3d, #ffb88c);
+    }
+
+    .fleet-header>h1 {
+      font-size: 3rem;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 1. HEADER / NAVIGATION -->
+  <header class="main-header">
+    <div class="header-container max-width-container">
+      <!-- Logo -->
+      <div class="logo-text">
+        Marine-<span class="logo-accent">Fleet</span>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav">
+        <a href="index.html" class="transition">Home</a>
+        <a href="#" class="transition">Fleet</a>
+        <a href="#" class="transition">luxuary</a>
+        <a href="#" class="transition">fishing</a>
+        <a href="about us.html" class="transition">About us</a>
+        <a href="Contect Us.html" class="transition">Contact</a>
+      </nav>
+
+      <!-- CTA Button -->
+
+      <button class="cta-button cta-button-header rounded-full shadow-lg">
+        <a href="booking.html"> Book Now</a>
+      </button>
+
+      <!-- Mobile Menu Icon -->
+      <button class="mobile-menu-icon" style="color: white">
+        &#9776;
+        <!-- Hamburger Icon -->
+      </button>
+    </div>
+  </header>
+  <div class="fleet">
+    <section class="fleet-section">
+      <!-- Premium Fleet Header -->
+      <div class="fleet-header">
+        <h1>Our Luxury Fleet</h1>
+        <p>
+          Our Luxury Fleet is crafted for those who desire more than just travel — it’s an experience of prestige,
+          comfort, and unmatched sophistication. Every vehicle in our collection represents a perfect blend of elegance,
+          advanced technology, and world-class performance. From the finest interiors to smooth, powerful drives, each
+          ride ensures a journey that feels exclusive, effortless, and truly unforgettable. Whether you’re traveling for
+          business, leisure, or a special occasion, our Luxury Fleet guarantees a level of excellence that elevates
+          every moment. Step in, relax, and enjoy the beauty of premium travel.
+        </p>
+        <!-- <div class="details">Capacity: Up to 20 Guests | Cost: $1,200 per hour | VIP Crew Included</div> -->
+
+      </div>
+
+      <!-- 9 Yacht Cards -->
+
+      <div class="fleet-grid">
+        <div class="fleet-card ">
+          <img src="Boats img/Luxury pic 1.jpg" alt="Sunset Cruiser" />
+          <div class="fleet-card-content">
+            <h3>Sunset Cruiser</h3>
+            <p>Unmatched elegance with premium interiors, panoramic ocean views, and ultra-smooth cruising designed for
+              elite luxury experiences.</p>
+               <div class="yacht-details-box">
+
+              <h3>Details</h3>
+              <div class="yacht-details">
+
+                <p><strong>Length:</strong> 95 ft</p>
+                <p><strong>Guests:</strong> 8</p>
+                <p><strong>Cabins:</strong> 4</p>
+                <p><strong>Speed:</strong> 30 Knots</p>
+              </div>
+              <p>Capacity: 16 Guests</p>
+              <p class="price">Cost: $1,000 / hour</p>
+            </div>
+            <!-- <p>Capacity: 10 Guests</p> -->
+            <!-- <p class="price">Cost: $600 / hour</p> -->
+            <div class="btn">
+              <a href="">View Detail</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="fleet-card">
+          <img src="Boats img/Luxury pic 2.jpg" alt="Sea Pearl" />
+          <div class="fleet-card-content">
+            <h3>Sea Pearl</h3>
+            <p>A masterpiece of comfort and style, offering spacious lounges, VIP cabins, and world-class amenities for
+              an unforgettable voyage.</p>
+               <div class="yacht-details-box">
+
+              <h3>Details</h3>
+              <div class="yacht-details">
+
+                <p><strong>Length:</strong> 95 ft</p>
+                <p><strong>Guests:</strong> 8</p>
+                <p><strong>Cabins:</strong> 4</p>
+                <p><strong>Speed:</strong> 30 Knots</p>
+              </div>
+              <p>Capacity: 16 Guests</p>
+              <p class="price">Cost: $1,000 / hour</p>
+            </div>
+            <!-- <p>Capacity: 8 Guests</p> -->
+            <!-- <p class="price">Cost: $500 / hour</p> -->
+            <div class="btn">
+              <a href="">View Detail</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="fleet-card">
+          <img src="Boats img/luxury pic 3.jpg" alt="Ocean Dream" />
+          <div class="fleet-card-content">
+            <h3>Ocean Dream</h3>
+            <p>Experience next-level luxury with crystal-clear deck views, high-end furnishing, and a serene ride built
+              for premium relaxation.</p>
+               <div class="yacht-details-box">
+
+              <h3>Details</h3>
+              <div class="yacht-details">
+
+                <p><strong>Length:</strong> 95 ft</p>
+                <p><strong>Guests:</strong> 8</p>
+                <p><strong>Cabins:</strong> 4</p>
+                <p><strong>Speed:</strong> 30 Knots</p>
+              </div>
+              <p>Capacity: 16 Guests</p>
+              <p class="price">Cost: $1,000 / hour</p>
+            </div>
+            <!-- <p>Capacity: 12 Guests</p> -->
+            <!-- <p class="price">Cost: $750 / hour</p> -->
+            <div class="btn">
+              <a href="">View Detail</a>
+            </div>
+          </div>
+        </div>
+        <div class="fleet-card">
+          <img src="Boats img/luxury pic 4.jpg" alt="Royal Breeze" />
+          <div class="fleet-card-content">
+            <h3>Royal Breeze</h3>
+            <p>Crafted for royalty — featuring modern architecture, luxury suites, and top-tier performance for the most
+              exclusive sea journeys.</p>
+            <div class="yacht-details-box">
+
+              <h3>Details</h3>
+              <div class="yacht-details">
+
+                <p><strong>Length:</strong> 95 ft</p>
+                <p><strong>Guests:</strong> 8</p>
+                <p><strong>Cabins:</strong> 4</p>
+                <p><strong>Speed:</strong> 30 Knots</p>
+              </div>
+              <p>Capacity: 16 Guests</p>
+              <p class="price">Cost: $1,000 / hour</p>
+            </div>
+            <!-- <p>Capacity: 14 Guests</p> -->
+            <!-- <p class="price">Cost: $850 / hour</p> -->
+            <div class="btn">
+              <a href="">View Detail</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="fleet-card">
+          <img src="Boats img/luxury pic 5.jpg" alt="Blue Horizon" />
+          <div class="fleet-card-content">
+            <h3>Blue Horizon</h3>
+            <p>A fusion of innovation and elegance, offering expansive outdoor decks, private cabins, and seamless
+              ocean-glide technology.</p>
+            <div class="yacht-details-box">
+
+              <h3>Details</h3>
+              <div class="yacht-details">
+
+                <p><strong>Length:</strong> 95 ft</p>
+                <p><strong>Guests:</strong> 8</p>
+                <p><strong>Cabins:</strong> 4</p>
+                <p><strong>Speed:</strong> 30 Knots</p>
+              </div>
+              <p>Capacity: 16 Guests</p>
+              <p class="price">Cost: $1,000 / hour</p>
+            </div>
+            <!-- <p>Capacity: 9 Guests</p> -->
+            <!-- <p class="price">Cost: $480 / hour</p> -->
+            <div class="btn">
+              <a href="">View Detail</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="fleet-card">
+          <img src="Boats img/luxury pic 6.jpg" alt="Golden Wave" />
+          <div class="fleet-card-content">
+            <h3>Golden Wave</h3>
+            <p>The ultimate expression of high-class yachting, combining refined design, premium comfort, and a
+              perfectly smooth sailing experience.</p>
+            <div class="yacht-details-box">
+
+              <h3>Details</h3>
+              <div class="yacht-details">
+
+                <p><strong>Length:</strong> 95 ft</p>
+                <p><strong>Guests:</strong> 8</p>
+                <p><strong>Cabins:</strong> 4</p>
+                <p><strong>Speed:</strong> 30 Knots</p>
+              </div>
+              <p>Capacity: 16 Guests</p>
+              <p class="price">Cost: $1,000 / hour</p>
+            </div>
+            <!-- <p>Capacity: 16 Guests</p> -->
+            <!-- <p class="price">Cost: $1,000 / hour</p> -->
+            <div class="btn">
+              <a href="">View Detail</a>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </section>
+    <section class="fleet-section">
+      <!-- Premium Fleet Header -->
+      <div class="fleet-header fishing ">
+        <h1>Our Fishing Fleet</h1>
+        <p>
+          Our Fishing Fleet is designed for those who seek thrill, reliability, and comfort on every fishing journey.
+          These yachts combine powerful engines with advanced navigation systems, giving you the freedom to explore deep
+          waters with complete confidence.
+
+          With spacious decks, secure seating, and professional-grade fishing equipment compatibility, each vessel
+          ensures a smooth and productive day at sea. Whether you’re planning sport fishing, coastal trips, or family
+          adventures, our Fishing Fleet delivers strength, stability, and unforgettable marine moments.
+        </p>
+        <!-- <div class="details">Capacity: Up to 20 Guests | Cost: $1,200 per hour | VIP Crew Included</div> -->
+        <div class="btn">
+
+        </div>
+      </div>
+
+      <!-- 9 Yacht Cards -->
+      <div class="fleet-grid">
+        <div class="fleet-card ">
+          <img src="Boats img/Fishing pic1.jpg" alt="Sunset Cruiser" />
+          <div class="fleet-card-content">
+            <h3>Ocean Catcher Pro/h3>
+              <p>Modern fishing boat with multi-scan radar, strong grip hull, aur hassle-free operation for both
+                beginner & expert anglers.</p>
+              <div class="yacht-details-box">
+
+                <h3>Details</h3>
+                <div class="yacht-details">
+
+                  <p><strong>Length:</strong> 95 ft</p>
+                  <p><strong>Guests:</strong> 8</p>
+                  <p><strong>Cabins:</strong> 4</p>
+                  <p><strong>Speed:</strong> 30 Knots</p>
+                </div>
+                <p>Capacity: 16 Guests</p>
+                <p class="price">Cost: $1,000 / hour</p>
+              </div>
+              <!-- <p>Capacity: 10 Guests</p> -->
+              <!-- <p class="price">Cost: $600 / hour</p> -->
+              <div class="btn">
+                <a href="">View Detail</a>
+              </div>
+          </div>
+        </div>
+
+        <div class="fleet-card">
+          <img src="Boats img/Fishing pic 2.jpg" alt="Sea Pearl" />
+          <div class="fleet-card-content">
+            <h3>BlueWave Fisher</h3>
+            <p>Strong body, spacious storage compartments, aur reliable engines — tough conditions me bhi best fishing
+              performance deta hai.</p>
+            <div class="yacht-details-box">
+
+              <h3>Details</h3>
+              <div class="yacht-details">
+
+                <p><strong>Length:</strong> 95 ft</p>
+                <p><strong>Guests:</strong> 8</p>
+                <p><strong>Cabins:</strong> 4</p>
+                <p><strong>Speed:</strong> 30 Knots</p>
+              </div>
+              <p>Capacity: 16 Guests</p>
+              <p class="price">Cost: $1,000 / hour</p>
+            </div>
+            <!-- <p>Capacity: 8 Guests</p> -->
+            <!-- <p class="price">Cost: $500 / hour</p> -->
+            <div class="btn">
+              <a href="">View Detail</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="fleet-card">
+          <img src="Boats img/Fishing pic 3.jpg" alt="Ocean Dream" />
+          <div class="fleet-card-content">
+            <h3>Ocean Dream</h3>
+            <p>Agile and efficient vessel with precision navigation, large bait area, aur comfortable seating for long
+              fishing sessions..</p>
+            <div class="yacht-details-box">
+
+              <h3>Details</h3>
+              <div class="yacht-details">
+
+                <p><strong>Length:</strong> 95 ft</p>
+                <p><strong>Guests:</strong> 8</p>
+                <p><strong>Cabins:</strong> 4</p>
+                <p><strong>Speed:</strong> 30 Knots</p>
+              </div>
+              <p>Capacity: 16 Guests</p>
+              <p class="price">Cost: $1,000 / hour</p>
+            </div>
+            <!-- <p>Capacity: 12 Guests</p> -->
+            <!-- <p class="price">Cost: $750 / hour</p> -->
+            <div class="btn">
+              <a href="">View Detail</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="fleet-card">
+          <img src="Boats img/Fishing pic4.jpg" alt="Royal Breeze" />
+          <div class="fleet-card-content">
+            <h3>SeaMaster Explorer</h3>
+            <p>Lightweight but durable craft, fast maneuvering aur accurate tracking tools ke sath ideal for daily
+              fishing adventures.</p>
+            <div class="yacht-details-box">
+
+              <h3>Details</h3>
+              <div class="yacht-details">
+
+                <p><strong>Length:</strong> 95 ft</p>
+                <p><strong>Guests:</strong> 8</p>
+                <p><strong>Cabins:</strong> 4</p>
+                <p><strong>Speed:</strong> 30 Knots</p>
+              </div>
+              <p>Capacity: 16 Guests</p>
+              <p class="price">Cost: $1,000 / hour</p>
+            </div>
+            <!-- <p>Capacity: 14 Guests</p> -->
+            <!-- <p class="price">Cost: $850 / hour</p> -->
+            <div class="btn">
+              <a href="">View Detail</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="fleet-card">
+          <img src="Boats img/Fishing pic 5.jpg" alt="Blue Horizon" />
+          <div class="fleet-card-content">
+            <h3>TideRunner Max</h3>
+            <p>High-performance fishing boat with wide deck space, modern equipment, aur smooth ride for professional
+              deep-water fishing.</p>
+            <div class="yacht-details-box">
+
+              <h3>Details</h3>
+              <div class="yacht-details">
+
+                <p><strong>Length:</strong> 95 ft</p>
+                <p><strong>Guests:</strong> 8</p>
+                <p><strong>Cabins:</strong> 4</p>
+                <p><strong>Speed:</strong> 30 Knots</p>
+              </div>
+              <p>Capacity: 16 Guests</p>
+              <p class="price">Cost: $1,000 / hour</p>
+            </div>
+            <!-- <p>Capacity: 9 Guests</p> -->
+            <!-- <p class="price">Cost: $480 / hour</p> -->
+            <div class="btn">
+              <a href="">View Detail</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="fleet-card">
+          <img src="Boats img/Fishing pic 6.jpg" alt="Golden Wave" />
+          <div class="fleet-card-content">
+            <h3>AquaLine Tracker</h3>
+            <p>Powerful and stable fishing vessel designed for long-range trips, advanced sonar system ke sath perfect
+              catch ke liye built.</p>
+            <div class="yacht-details-box">
+
+              <h3>Details</h3>
+              <div class="yacht-details">
+
+                <p><strong>Length:</strong> 95 ft</p>
+                <p><strong>Guests:</strong> 8</p>
+                <p><strong>Cabins:</strong> 4</p>
+                <p><strong>Speed:</strong> 30 Knots</p>
+              </div>
+              <p>Capacity: 16 Guests</p>
+              <p class="price">Cost: $1,000 / hour</p>
+            </div>
+            <!-- <p>Capacity: 16 Guests</p> -->
+            <!-- <p class="price">Cost: $1,000 / hour</p> -->
+            <div class="btn">
+              <a href="">View Detail</a>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </section>
+    <section class="fleet-section">
+      <!-- Premium Fleet Header -->
+      <div class="fleet-header selling">
+        <h1>Our Selling Fleet</h1>
+        <p>
+          Our Selling Fleet brings you a hand-picked selection of luxurious yachts, each crafted to deliver unmatched
+          comfort, power, and elegance on the open sea. Every yacht is maintained to the highest standards, blending
+          modern design with advanced marine engineering. Whether you seek premium performance, spacious decks, or
+          world-class interiors, our Selling Fleet offers vessels that elevate your ocean lifestyle.
+
+          From private getaways to grand celebrations, these yachts promise smooth sailing, top-tier safety, and an
+          unforgettable yachting experience. Explore our exclusive fleet and choose the yacht that perfectly matches
+          your vision of luxury.
+        </p>
+        <!-- <div class="details">Capacity: Up to 20 Guests | Cost: $1,200 per hour | VIP Crew Included</div> -->
+
+      </div>
+
+      <!-- 9 Yacht Cards -->
+      <div class="fleet-grid">
+        <div class="fleet-card">
+          <img src="Boats img/Salling pic1.jpg" alt="Sunset Cruiser" />
+          <div class="fleet-card-content">
+            <h3>WaveRider Classic</h3>
+            <p>Premium wooden-finish style, steady wind control, aur effortless handling — beginners aur pros dono ke
+              liye ideal sailing craft.</p>
+            <div class="yacht-details-box">
+
+              <h3>Details</h3>
+              <div class="yacht-details">
+
+                <p><strong>Length:</strong> 95 ft</p>
+                <p><strong>Guests:</strong> 8</p>
+                <p><strong>Cabins:</strong> 4</p>
+                <p><strong>Speed:</strong> 30 Knots</p>
+              </div>
+              <p>Capacity: 16 Guests</p>
+              <p class="price">Cost: $1,000 / hour</p>
+            </div>
+            <!-- <p>Capacity: 10 Guests</p> -->
+            <!-- <p class="price">Cost: $600 / hour</p> -->
+            <div class="btn">
+              <a href="">View Detail</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="fleet-card">
+          <img src="Boats img/salling pic 2.jpg" alt="Sea Pearl" />
+          <div class="fleet-card-content">
+            <h3>BlueHorizon Drifter</h3>
+            <p>Classic sailing charm combined with modern safety features, delivering smooth travel and scenic ocean
+              exploration.</p>
+            <div class="yacht-details-box">
+
+              <h3>Details</h3>
+              <div class="yacht-details">
+
+                <p><strong>Length:</strong> 95 ft</p>
+                <p><strong>Guests:</strong> 8</p>
+                <p><strong>Cabins:</strong> 4</p>
+                <p><strong>Speed:</strong> 30 Knots</p>
+              </div>
+              <p>Capacity: 16 Guests</p>
+              <p class="price">Cost: $1,000 / hour</p>
+            </div>
+            <!-- <p>Capacity: 8 Guests</p> -->
+            <!-- <p class="price">Cost: $500 / hour</p> -->
+            <div class="btn">
+              <a href="">View Detail</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="fleet-card">
+          <img src="Boats img/salling pic 3.jpg" alt="Ocean Dream" />
+          <div class="fleet-card-content">
+            <h3>HorizonSail Cruiser</h3>
+            <p>Elegant build with spacious deck, soft glide motion, aur steady navigation — relaxing sunset sails ke
+              liye perfect choice. </p>
+            <div class="yacht-details-box">
+
+              <h3>Details</h3>
+              <div class="yacht-details">
+
+                <p><strong>Length:</strong> 95 ft</p>
+                <p><strong>Guests:</strong> 8</p>
+                <p><strong>Cabins:</strong> 4</p>
+                <p><strong>Speed:</strong> 30 Knots</p>
+              </div>
+              <p>Capacity: 16 Guests</p>
+              <p class="price">Cost: $1,000 / hour</p>
+            </div>
+            <!-- <p>Capacity: 12 Guests</p> -->
+            <!-- <p class="price">Cost: $750 / hour</p> -->
+            <div class="btn">
+              <a href="">View Detail</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="fleet-card">
+          <img src="Boats img/sallig pic 4.jpg" alt="Royal Breeze" />
+          <div class="fleet-card-content">
+            <h3>SeaWing Explorer</h3>
+            <p>High-performance sailboat with sharp maneuvering, strong wind-catching sails, and comfortable seating for
+              adventurous trips.</p>
+            <div class="yacht-details-box">
+
+              <h3>Details</h3>
+              <div class="yacht-details">
+
+                <p><strong>Length:</strong> 95 ft</p>
+                <p><strong>Guests:</strong> 8</p>
+                <p><strong>Cabins:</strong> 4</p>
+                <p><strong>Speed:</strong> 30 Knots</p>
+              </div>
+              <p>Capacity: 16 Guests</p>
+              <p class="price">Cost: $1,000 / hour</p>
+            </div>
+            <!-- <p>Capacity: 14 Guests</p> -->
+            <!-- <p class="price">Cost: $850 / hour</p> -->
+            <div class="btn">
+              <a href="">View Detail</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="fleet-card">
+          <img src="Boats img/salling pic 5.jpg" alt="Blue Horizon" />
+          <div class="fleet-card-content">
+            <h3>OceanBreeze Voyager</h3>
+            <p>Wide sails, stable deck design, aur top-tier control system ke sath premium sailing experience — ideal
+              for long peaceful journeys.</p>
+            <div class="yacht-details-box">
+
+              <h3>Details</h3>
+              <div class="yacht-details">
+
+                <p><strong>Length:</strong> 95 ft</p>
+                <p><strong>Guests:</strong> 8</p>
+                <p><strong>Cabins:</strong> 4</p>
+                <p><strong>Speed:</strong> 30 Knots</p>
+              </div>
+              <p>Capacity: 16 Guests</p>
+              <p class="price">Cost: $1,000 / hour</p>
+            </div>
+            <div class="btn">
+              <a href="">View Detail</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="fleet-card">
+          <img src="Boats img/salling pic 6.jpg" alt="Golden Wave" />
+          <div class="fleet-card-content">
+            <h2>WindGlide Spirit</h2>
+            <p> <span style="display: none;">Details </span> <br>Lightweight and graceful sailing vessel designed for
+              smooth ocean cruising, offering perfect balance
+              between speed and calmness.</p>
+            <div class="yacht-details-box">
+
+              <h3>Details</h3>
+              <div class="yacht-details">
+
+                <p><strong>Length:</strong> 95 ft</p>
+                <p><strong>Guests:</strong> 8</p>
+                <p><strong>Cabins:</strong> 4</p>
+                <p><strong>Speed:</strong> 30 Knots</p>
+              </div>
+              <p>Capacity: 16 Guests</p>
+              <p class="price">Cost: $1,000 / hour</p>
+            </div>
+
+            <div class="btn">
+              <a href="">View Detail</a>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </section>
+  </div>
+  <!-- view-detail-box  -->
+  <div class="view-detail-box">
+    <div class="view-detail">
+      <button id="closebtn">
+        <h2>✖</h2>
+      </button>
+      <!-- p-name -->
+      <h2 id="view-detail-name"></h2>
+      <!-- p-img  -->
+      <img id="view-detail-img" src="" alt="">
+      <!-- p-decprition  -->
+      <p id="view-detail-p" style="text-align: center; padding: 20px;"></p>
+      <div id="view-detail-box">
+        <h3></h3>
+
+      </div>
+      <div style="margin-bottom: 200px;" class="btn">
+        <a style="margin-left : 150px;" href="booking.html">Book Now</a>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- 9. FOOTER -->
+  <footer class="main-footer">
+    <div class="max-width-container">
+      <div class="footer-grid">
+        <!-- Col 1: Logo & Mission -->
+        <div class="footer-logo-col">
+          <div class="footer-logo">
+            Marina-<span class="logo-accent">Fleet</span>
+          </div>
+          <p class="footer-mission">
+            We plan your personalized yachting experience, ensuring you
+            explore the world's oceans in ultimate style and privacy.
+          </p>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div>
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html" class="transition">Home</a></li>
+            <li><a href="#" class="transition">Our Fleet</a></li>
+            <li><a href="" class="transition">Contect Us</a></li>
+            <li><a href="#" class="transition"></a>FAQ</li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Support -->
+        <!-- <div>
+              <h4 class="footer-heading">Support</h4>
+              <ul class="footer-links">
+                  <li><a href="#" class="transition">Contact Us</a></li>
+                  <li><a href="#" class="transition">FAQ</a></li>
+                  <li><a href="#" class="transition">Careers</a></li>
+                  <li><a href="#" class="transition">Terms & Conditions</a></li>
+              </ul>
+          </div> -->
+
+        <!-- Col 4: Contact -->
+        <div>
+          <h4 class="footer-heading">Contact</h4>
+          <ul class="footer-contact">
+            <li>3712-93719289</li>
+            <li>info@voyago.com</li>
+            <li>Marina Del Rey, CA</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Copyright Bar -->
+      <div class="copyright-bar">
+        <p>&copy; 2025 Marina-Fleet. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script>
+    // let cards = document.querySelectorAll(".fleet-card-content")
+    // let popup = document.querySelector(".view-detail-box")
+    // let closebtn = document.getElementById("closebtn")
+    // cards.forEach(function (card) {
+    //   card.addEventListener("click", function () {
+
+    //     let name = card.querySelector("h2").innerText;
+    //     let details = card.querySelector("p").innerText;
+    //     document.getElementById("view-detail-name").innerText = name;
+    //     document.getElementById("view-detail-p").innerText = details;
+    //     popup.style.display = "flex"
+    //   })
+
+    // })
+    // closebtn.addEventListener("click", function () {
+    //   popup.style.display = "none";
+    // })
+    let cards = document.querySelectorAll(".fleet-card");
+    let popup = document.querySelector(".view-detail-box");
+    let closebtn = document.getElementById("closebtn");
+
+    cards.forEach(function (card) {
+      card.addEventListener("click", function (event) {
+
+        if (event.target.closest('.btn a')) {
+          event.preventDefault();
+        }
+
+
+        let nameElement = card.querySelector(".fleet-card-content h3, .fleet-card-content h2");
+        let detailsElement = card.querySelector("p");
+        let imageElement = card.querySelector("img");
+        let capacityElement = card.querySelector(".yacht-details-box");
+
+        if (nameElement && detailsElement && imageElement && capacityElement) {
+          let name = nameElement.innerText;
+          let details = detailsElement.innerText;
+          let imageSrc = imageElement.src;
+          let capacity = capacityElement.innerText;
+
+          // Set content
+          document.getElementById("view-detail-name").innerText = name;
+          document.getElementById("view-detail-p").innerText = details;
+          document.getElementById("view-detail-img").src = imageSrc;
+          document.getElementById("view-detail-box").innerText = capacityElement;
+
+
+          // Show popup
+          popup.style.display = "flex";
+        }
+      });
+    });
+
+    closebtn.addEventListener("click", function () {
+      popup.style.display = "none";
+    });
+
+
+
+  </script>
+</body>
+
+</html>
