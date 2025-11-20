@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>About Us | Discover Luxury at The Sea</title>
+    <link rel="icon" href="../E-project/Icon/sailboat-solid-full.svg">
+
 </head>
 <style>
     /* --- CSS VARIABLES & BASE STYLES --- */
@@ -431,8 +433,8 @@
         text-align: center;
 
     }
-    
-   
+
+
 
 
 
@@ -603,6 +605,99 @@
             grid-template-columns: repeat(3, 1fr);
         }
     }
+
+    /* Responsive Styles */
+    @media (max-width: 900px) {
+        .logo-text {
+            padding-left: 0;
+            font-size: 1.2rem;
+        }
+
+        .cta-button-header {
+            margin-right: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .features-grid,
+        .yacht-grid {
+            grid-template-columns: 1fr;
+            gap: 1.2rem;
+        }
+
+        .Aboutus {
+            margin: 10px 2px;
+            padding: 10px;
+        }
+
+        .footer-grid {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            /* padding-bottom: 1rem; */
+            padding: 0px 20px 1rem 20px;
+        }
+
+        .footer-logo-col,
+        .footer-heading,
+        .footer-links,
+        .footer-contact {
+            margin-left: 0;
+            padding-left: 0;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+        }
+
+        .footer-mission {
+            font-size: 1rem;
+        }
+
+        .copyright-bar {
+            font-size: 0.9rem;
+            padding-top: 0.5rem;
+        }
+
+        .copyright-links {
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .location iframe {
+            width: 100%;
+            height: 220px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .hero-title {
+            font-size: 1.5rem;
+        }
+
+        .section-title,
+        .fleet-title {
+            font-size: 2rem;
+        }
+
+        .Aboutus h1 {
+            font-size: 2.5rem;
+        }
+
+        .Aboutus h3 {
+            font-size: 1.4rem;
+
+        }
+
+        .Aboutus {
+            padding: 20px;
+        }
+
+        .location iframe {
+            width: 100%;
+            height: 120px;
+        }
+    }
 </style>
 
 <body>
@@ -617,7 +712,7 @@
             <!-- Desktop Navigation -->
             <nav class="desktop-nav">
                 <a href="index.html" target="_blank" class="transition">Home</a>
-                <a href="#" target="_blank" class="transition">Fleet</a>
+                <a href="Fleet.html" target="_blank" class="transition">Fleet</a>
                 <a href="about us.html" target="_blank" class="transition">About us</a>
                 <a href="contect us.html" target="_blank" class="transition">Contact</a>
                 <a href="FAQ.html" target="_blank" class="transition">FAQ</a>
@@ -832,7 +927,7 @@
 
         </div>
     </div>
-    
+
 
 
 

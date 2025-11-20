@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Contact Us | Discover Luxury at The Sea</title>
+    <link rel="icon" href="../E-project/Icon/sailboat-solid-full.svg">
+
     <style>
         /* contact  */
         :root {
@@ -133,8 +135,8 @@
             padding: 50px;
         }
 
-        
-        
+
+
 
 
         .cta-content h1 {
@@ -155,9 +157,6 @@
             margin-top: 20px;
         }
 
-        /* .cta-icon-div {
-            margin-top: -3rem;
-        } */
 
         .cta-icon {
             padding: -1rem;
@@ -238,24 +237,146 @@
         }
 
         @media (min-width: 768px) {
+            .cta-contact-box {
+                padding: 4rem;
+            }
+
             .cta-content-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
                 display: grid;
-                gap: 3rem;
-                align-items: flex-start;
+                grid-template-columns: repeat(2, 1fr);
+                align-items: start;
+                gap: 5rem;
+                /* Increased gap on larger screens */
             }
 
-            .cta-content h2 {
+            .cta-content h1 {
                 font-size: 3rem;
-                /* md:text-5xl */
             }
 
-            .contact-form {
-                margin-top: 0;
-                /* md:mt-0 */
+            .form-row {
+                flex-direction: row;
+                gap: 1rem;
             }
         }
 
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+
+            .logo-text {
+                font-size: 1rem;
+                padding-left: 0;
+            }
+
+            .mobile-menu-icon {
+                display: block;
+                margin-left: auto;
+                font-size: 2rem;
+                background: none;
+                border: none;
+                box-shadow: none;
+                outline: none;
+            }
+
+            .cta-button-header {
+                width: auto;
+                font-size: 1rem;
+            }
+
+            .cta-contact-box {
+                margin: 20px;
+                padding: 1rem;
+            }
+
+            .contact-form {
+                margin-right: 0;
+                padding: 1rem;
+                font-size: 1rem;
+            }
+
+            .form-fields {
+                gap: 1rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .footer-logo {
+                font-size: 5rem;
+            }
+
+            .footer-mission {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .cta-contact-box {
+                margin: 10px;
+                padding: 0.5rem;
+            }
+
+            .contact-form {
+                padding: 0.5rem;
+                font-size: 0.9rem;
+            }
+
+            .form-submit-button {
+                font-size: 0.9rem;
+                padding: 0.5rem;
+            }
+
+            .footer-logo {
+                font-size: 2rem;
+            }
+
+            .footer-mission {
+                font-size: 8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-text {
+                font-size: 1.2rem;
+            }
+
+            .cta-text {
+                margin-left: 20px;
+            }
+
+            .cta-contact-box {
+                padding: 0.3rem;
+            }
+
+
+            .contact-form {
+                padding: 2rem 3rem 2rem 2rem;
+                font-size: 0.8rem;
+            }
+
+            .cta-icon {
+                margin-left: 20px;
+            }
+
+            .form-submit-button {
+
+                font-size: 1rem;
+                padding: 0.4rem;
+            }
+
+            .footer-logo {
+                font-size: 0.1rem;
+            }
+
+            .footer-mission {
+                font-size: 1rem;
+            }
+        }
 
         body {
             background-color: var(--primary-bg);
@@ -378,6 +499,36 @@
                 margin-top: 0;
             }
         }
+
+        @media (max-width: 1200px),
+        (max-width: 1024px),
+        (max-width: 768px),
+        (max-width: 480px) {
+            .footer-logo-col {
+                text-align: left;
+                align-items: flex-start;
+                margin-left: 20px;
+            }
+
+            .footer-logo {
+                text-align: left;
+                margin-left: 0;
+                font-size: 2rem;
+            }
+
+            .footer-mission {
+                text-align: left;
+                margin-left: 0;
+                font-size: 1rem;
+            }
+
+            .footer-heading,
+            .footer-links,
+            .footer-contact {
+                text-align: left;
+                margin-left: -30px;
+            }
+        }
     </style>
 </head>
 
@@ -396,10 +547,10 @@
                     <!-- Desktop Navigation -->
                     <nav class="desktop-nav">
                         <a href="index.html" class="transition">Home</a>
-                        <a href="#" class="transition">Fleet</a>
+                        <a href="Fleet.html" class="transition">Fleet</a>
                         <a href="about us.html" class="transition">About us</a>
                         <a href="Contect Us.html" class="transition">Contact</a>
-                <a href="FAQ.html" target="_blank" class="transition">FAQ</a>
+                        <a href="FAQ.html" target="_blank" class="transition">FAQ</a>
 
                     </nav>
 
@@ -422,7 +573,7 @@
 
                     <!-- Left Side: Plan & CTA -->
                     <div class="cta-content">
-                        
+
                         <h1>
                             Get In Touch
                         </h1>

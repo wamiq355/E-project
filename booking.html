@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marina Fleet | Discover Luxury at The Sea</title>
+    <title>Booking | Discover Luxury at The Sea</title>
+    <link rel="icon" href="../E-project/Icon/sailboat-solid-full.svg">
+
 </head>
 <style>
     :root {
@@ -370,62 +372,119 @@
 
 
     /* --- RESPONSIVENESS (Media Queries) --- */
-    @media (min-width: 768px) {
-        :root {
-            --header-height: 7rem;
-            /* Adjust header height for larger screens */
-        }
 
-        body {
-            padding-top: var(--header-height);
-        }
-
-        .hero {
-            height: 80vh;
-        }
-
-        .hero-title {
-            font-size: 4.5rem;
-        }
-
-        .main-header {
-            padding: 1.5rem 0;
-            /* Adjust vertical padding */
-        }
-
-        .desktop-nav {
-            display: flex;
-            align-items: center;
-        }
-
-        .cta-button-header {
-            display: block;
+    /* Responsive Styles */
+    @media (max-width: 767px) {
+        .logo-text {
+            padding-left: 0;
+            font-size: 1.2rem;
         }
 
         .mobile-menu-icon {
-            display: none;
+            display: block;
+            position: static;
+            margin-left: auto;
+            font-size: 1.8rem;
+            color: white;
+            background: none;
+            border: none;
+            box-shadow: none;
+            outline: none;
+            z-index: 2;
         }
 
-        .features-grid {
-            grid-template-columns: repeat(3, 1fr);
+        .cta-button-header {
+            margin-right: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 1rem;
         }
 
-        .yacht-grid {
-            grid-template-columns: repeat(2, 1fr);
+        .cta-contact-box {
+            margin: 20px 20px 0 20px;
+            padding: 1rem;
         }
 
-        .form-grid {
-            grid-template-columns: repeat(2, 1fr);
+        .cta-content-grid {
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .cta-content h2 {
+            font-size: 1.3rem;
+        }
+
+        .cta-content p {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-content img {
+            width: 100%;
+            height: auto;
+            max-width: 250px;
+        }
+
+        .form-row {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        .main-footer {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        .footer-grid {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            /* padding-bottom: 1rem; */
+            padding: 0px 10px 0px 10px;
+        }
+
+        .footer-logo-col,
+        .footer-heading,
+        .footer-links,
+        .footer-contact {
+            margin-left: 0;
+            padding-left: 0;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+        }
+
+        .footer-mission {
+            font-size: 1rem;
+        }
+
+        .copyright-bar {
+            font-size: 0.8rem;
+            padding-top: 0.5rem;
+        }
+
+        .copyright-links {
+            flex-direction: column;
+            gap: 0.2rem;
         }
     }
 
-    @media (min-width: 1024px) {
-        .hero-title {
-            font-size: 5rem;
+    @media (max-width: 480px) {
+        .cta-content h2 {
+            font-size: 2.1rem;
         }
 
-        .yacht-grid {
-            grid-template-columns: repeat(3, 1fr);
+        .cta-content img {
+            max-width: 280px;
+        }
+
+        .cta-contact-box {
+            padding: 2rem;
+        }
+
+        .form-submit-button {
+            font-size: 1rem;
+            padding: 1rem 1rem;
         }
     }
 </style>
@@ -443,7 +502,7 @@
             <!-- Desktop Navigation -->
             <nav class="desktop-nav">
                 <a href="index.html" target="_blank" class="transition">Home</a>
-                <a href="#" target="_blank" class="transition">Fleet</a>
+                <a href="Fleet.html" target="_blank" class="transition">Fleet</a>
                 <a href="about us.html" target="_blank" class="transition">About us</a>
                 <a href="contect us.html" target="_blank" class="transition">Contact</a>
                 <a href="FAQ.html" target="_blank" class="transition">FAQ</a>

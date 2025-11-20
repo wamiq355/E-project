@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Card Transfer | Discover Luxury at The Sea</title>
+    <link rel="icon" href="../E-project/Icon/sailboat-solid-full.svg">
+
     <style>
         /* contact  */
         :root {
@@ -281,6 +283,85 @@
             }
         }
 
+        /* Responsive Styles */
+        /* FINAL RESPONSIVE FIX — DO NOT EDIT ABOVE CODE */
+        @media (max-width: 900px) {
+
+            /* Fix form shifting right */
+            .contact-form,
+            .contact-form-box h4 {
+                left: 0 !important;
+            }
+
+            /* Reduce large padding on boxes */
+            .cta-contact-box {
+                padding: 1rem !important;
+                margin: 0.5rem !important;
+            }
+
+            /* Fix form width */
+            .contact-form {
+                width: 79% !important;
+                padding: 2rem !important;
+            }
+
+            /* Fix footer alignment */
+            .footer-grid {
+                grid-template-columns: 1fr !important;
+                margin-left: 0px;
+            }
+            .footer-heading{
+                 position: relative;
+                left: -30px;
+            }
+
+            .footer-logo-col {
+                margin-left: 0 !important;
+                
+                /* text-align: center !important; */
+            }
+            .footer-logo {font-size: 2rem;}
+
+            .footer-links,
+            .footer-contact {
+                position: relative;
+                left: -30px;
+                padding-left: 0 !important;
+                /* align-items: center !important; */
+            }
+        }
+
+        /* Small mobile screens */
+        @media (max-width: 500px) {
+
+            .cta-content-grid {
+                display: block !important;
+            }
+
+            .contact-form h3,
+            .contact-form-box h4 {
+                font-size: 1.3rem !important;
+            }
+
+            .input-field {
+                font-size: 0.9rem !important;
+                padding: 0.6rem !important;
+            }
+
+            /* Button fix */
+            .form-submit-button {
+                width: 100% !important;
+                padding: 0.8rem !important;
+                font-size: 1rem !important;
+            }
+
+            /* Footer shrinking fix */
+            .footer-logo {
+                font-size: 2rem !important;
+                margin-left: 10px;
+            }
+        }
+
 
         body {
             background-color: var(--primary-bg);
@@ -403,6 +484,94 @@
                 margin-top: 0;
             }
         }
+
+        @media (orientation: portrait) {
+            .main-header {
+                padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+                border-radius: 0 0 20px 20px;
+            }
+
+            .header-container {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .logo-text {
+                font-size: 1.2rem;
+                padding-left: 0.5rem;
+            }
+
+            .cta-button-header {
+                width: auto;
+                font-size: 1rem;
+                margin-right: 0.5rem;
+            }
+
+            .mobile-menu-icon {
+                display: block;
+                margin-left: auto;
+                font-size: 2rem;
+                background: none;
+                border: none;
+                box-shadow: none;
+                outline: none;
+            }
+
+            .desktop-nav {
+                display: none;
+            }
+
+            .cta-contact-box {
+                margin: 8px 2px 0 2px;
+                padding: 0.5rem;
+            }
+
+            .contact-form {
+                padding: 0.5rem;
+                font-size: 0.95rem;
+            }
+
+            .form-fields {
+                gap: 0.8rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .footer-logo {
+                font-size: 2rem;
+            }
+
+            .footer-mission {
+                font-size: 1rem;
+                margin-left: 13px;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .footer-logo-col {
+                text-align: left;
+                align-items: flex-start;
+                margin-left: 0;
+            }
+
+            .footer-logo {
+                text-align: left;
+                margin-left: 20;
+            }
+
+            .footer-mission {
+                text-align: left;
+                margin-left: 20;
+            }
+        }
     </style>
 </head>
 
@@ -421,7 +590,7 @@
                     <!-- Desktop Navigation -->
                     <nav class="desktop-nav">
                         <a href="index.html" class="transition">Home</a>
-                        <a href="#" class="transition">Fleet</a>
+                        <a href="Fleet.html" class="transition">Fleet</a>
                         <a href="about us.html" class="transition">About us</a>
                         <a href="Contect Us.html" class="transition">Contact</a>
                         <a href="FAQ.html" target="_blank" class="transition">FAQ</a>

@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Bank Transfer | Discover Luxury at The Sea</title>
+    <link rel="icon" href="../E-project/Icon/sailboat-solid-full.svg">
+
     <style>
         /* contact  */
         :root {
@@ -403,6 +405,127 @@
                 margin-top: 0;
             }
         }
+
+        /* Responsive Styles */
+        @media (max-width: 900px) {
+
+            .contact-form,
+            .contact-form-box h4 {
+                left: 0;
+                padding: 20px;
+                font-size: 3rem;
+            }
+
+            .contact-form {
+                margin: 0;
+            }
+
+            .cta-contact-box {
+                margin-top: 40px;
+                padding: 10px;
+            }
+
+            .cta-content h1,
+            .contact-form h3 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .logo-text {
+                padding-left: 0;
+                font-size: 1.2rem;
+            }
+
+            .cta-button-header {
+                margin-right: 0;
+                width: 100%;
+                text-align: center;
+                font-size: 2rem;
+            }
+
+            .cta-contact-box {
+                margin: 10px 2px 0 2px;
+                padding: 0.5rem;
+            }
+
+            .contact-form,
+            .contact-form-box h4 {
+                left: 0;
+                padding: 40px;
+                font-size: 1.2rem;
+            }
+
+            .form-fields {
+                gap: 1rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .main-footer {
+                padding: 2rem 20px 2rem 20px;
+
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding-bottom: 1rem;
+            }
+
+            .footer-logo-col,
+            .footer-heading {
+                margin-left: 0;
+                padding-left: 0;
+            }
+
+            .footer-links {
+                margin-left: -67px;
+            }
+
+            .footer-contact {
+                margin-left: -67px;
+            }
+
+            .footer-logo {
+                font-size: 2rem;
+            }
+
+            .footer-mission {
+                font-size: 1rem;
+            }
+
+            .copyright-bar {
+                font-size: 0.8rem;
+                padding-top: 0.5rem;
+            }
+
+            .copyright-links {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .cta-content h1,
+            .contact-form h3,
+            .contact-form-box h4 {
+                font-size: 2rem;
+            }
+
+            .cta-contact-box {
+                padding: 0.2rem;
+            }
+
+            .form-submit-button {
+                font-size: 1rem;
+                padding: 0.5rem 1rem;
+            }
+        }
     </style>
 </head>
 
@@ -421,7 +544,7 @@
                     <!-- Desktop Navigation -->
                     <nav class="desktop-nav">
                         <a href="index.html" class="transition">Home</a>
-                        <a href="#" class="transition">Fleet</a>
+                        <a href="Fleet.html" class="transition">Fleet</a>
                         <a href="about us.html" class="transition">About us</a>
                         <a href="Contect Us.html" class="transition">Contact</a>
                         <a href="FAQ.html" target="_blank" class="transition">FAQ</a>
@@ -494,14 +617,15 @@
                                 <label for="">
                                     3. Phone Nunmber</label>
                                 <input type="number" placeholder="Your Number" class="input-field" maxlength="5">
-                                
+
                                 <h3>Payment Details</h3>
                                 <label for="">
                                     4. Amount Paid</label>
                                 <input type="number" class="input-field" placeholder="Amount">
                                 <label for="">
                                     5. Transaction ID (From Bank Receipt)</label>
-                                <input type="text" placeholder="Transaction ID (From Bank Receipt)" class="input-field" maxlength="3">
+                                <input type="text" placeholder="Transaction ID (From Bank Receipt)" class="input-field"
+                                    maxlength="4">
                                 <label for="">
                                     6. Upload Payment Screenshot</label>
                                 <input type="file" class="input-field" accept="image/*">
